@@ -1,0 +1,260 @@
+{
+    "public_transport": {
+        "bus": {
+            "routes": [
+                {
+                    "startPoint": "Pune Station",
+                    "endPoint": "Swargate",
+                    "time": "25 min",
+                    "cost": "₹20"
+                },
+                {
+                    "startPoint": "Kothrud",
+                    "endPoint": "Shivajinagar",
+                    "time": "30 min",
+                    "cost": "₹22"
+                },
+                {
+                    "startPoint": "Hadapsar",
+                    "endPoint": "Nigdi",
+                    "time": "1 hr 10 min",
+                    "cost": "₹35"
+                },
+                {
+                    "startPoint": "Viman Nagar",
+                    "endPoint": "Kharadi",
+                    "time": "20 min",
+                    "cost": "₹18"
+                },
+                {
+                    "startPoint": "Baner",
+                    "endPoint": "Aundh",
+                    "time": "15 min",
+                    "cost": "₹15"
+                },
+                {
+                    "startPoint": "Warje",
+                    "endPoint": "Deccan",
+                    "time": "30 min",
+                    "cost": "₹20"
+                },
+                {
+                    "startPoint": "Camp",
+                    "endPoint": "MG Road",
+                    "time": "10 min",
+                    "cost": "₹10"
+                },
+                {
+                    "startPoint": "Katraj",
+                    "endPoint": "Swargate",
+                    "time": "15 min",
+                    "cost": "₹12"
+                },
+                {
+                    "startPoint": "Hinjewadi",
+                    "endPoint": "Shivajinagar",
+                    "time": "1 hr",
+                    "cost": "₹40"
+                },
+                {
+                    "startPoint": "Nigdi",
+                    "endPoint": "Pimpri",
+                    "time": "25 min",
+                    "cost": "₹18"
+                }
+            ]
+        },
+        "flight": {
+            "routes": [
+                {
+                    "startPoint": "Pune Airport",
+                    "endPoint": "Mumbai Airport",
+                    "time": "55 min",
+                    "cost": "₹2500"
+                },
+                {
+                    "startPoint": "Pune Airport",
+                    "endPoint": "Delhi Airport",
+                    "time": "2 hr 15 min",
+                    "cost": "₹4800"
+                },
+                {
+                    "startPoint": "Pune Airport",
+                    "endPoint": "Bengaluru Airport",
+                    "time": "1 hr 30 min",
+                    "cost": "₹3500"
+                },
+                {
+                    "startPoint": "Pune Airport",
+                    "endPoint": "Hyderabad Airport",
+                    "time": "1 hr 10 min",
+                    "cost": "₹3000"
+                },
+                {
+                    "startPoint": "Pune Airport",
+                    "endPoint": "Chennai Airport",
+                    "time": "1 hr 40 min",
+                    "cost": "₹3800"
+                },
+                {
+                    "startPoint": "Pune Airport",
+                    "endPoint": "Kolkata Airport",
+                    "time": "2 hr 30 min",
+                    "cost": "₹5200"
+                },
+                {
+                    "startPoint": "Pune Airport",
+                    "endPoint": "Ahmedabad Airport",
+                    "time": "1 hr 5 min",
+                    "cost": "₹2700"
+                },
+                {
+                    "startPoint": "Pune Airport",
+                    "endPoint": "Goa Airport",
+                    "time": "1 hr 20 min",
+                    "cost": "₹3200"
+                },
+                {
+                    "startPoint": "Pune Airport",
+                    "endPoint": "Jaipur Airport",
+                    "time": "2 hr",
+                    "cost": "₹4100"
+                },
+                {
+                    "startPoint": "Pune Airport",
+                    "endPoint": "Nagpur Airport",
+                    "time": "1 hr 25 min",
+                    "cost": "₹3400"
+                }
+            ]
+        },
+        "metro": {
+            "routes": [
+                {
+                    "startPoint": "Vanaz",
+                    "endPoint": "Garware College",
+                    "time": "15 min",
+                    "cost": "₹20"
+                },
+                {
+                    "startPoint": "PCMC",
+                    "endPoint": "Shivajinagar",
+                    "time": "35 min",
+                    "cost": "₹30"
+                },
+                {
+                    "startPoint": "Civil Court",
+                    "endPoint": "Swargate",
+                    "time": "20 min",
+                    "cost": "₹25"
+                },
+                {
+                    "startPoint": "Ramwadi",
+                    "endPoint": "Bund Garden",
+                    "time": "10 min",
+                    "cost": "₹15"
+                },
+                {
+                    "startPoint": "Balewadi",
+                    "endPoint": "Aundh",
+                    "time": "12 min",
+                    "cost": "₹18"
+                },
+                {
+                    "startPoint": "Dapodi",
+                    "endPoint": "Bhosari",
+                    "time": "14 min",
+                    "cost": "₹16"
+                },
+                {
+                    "startPoint": "Nigdi",
+                    "endPoint": "PCMC",
+                    "time": "10 min",
+                    "cost": "₹12"
+                },
+                {
+                    "startPoint": "Kothrud",
+                    "endPoint": "Karve Nagar",
+                    "time": "8 min",
+                    "cost": "₹10"
+                },
+                {
+                    "startPoint": "Deccan",
+                    "endPoint": "Shivajinagar",
+                    "time": "6 min",
+                    "cost": "₹8"
+                },
+                {
+                    "startPoint": "Garware College",
+                    "endPoint": "Civil Court",
+                    "time": "12 min",
+                    "cost": "₹14"
+                }
+            ]
+        },
+        "pmt": {
+            "routes": [
+                {
+                    "startPoint": "Swargate",
+                    "endPoint": "Katraj",
+                    "time": "20 min",
+                    "cost": "₹15"
+                },
+                {
+                    "startPoint": "Nigdi",
+                    "endPoint": "Deccan",
+                    "time": "50 min",
+                    "cost": "₹28"
+                },
+                {
+                    "startPoint": "Pune Station",
+                    "endPoint": "Camp",
+                    "time": "10 min",
+                    "cost": "₹10"
+                },
+                {
+                    "startPoint": "Kharadi",
+                    "endPoint": "Viman Nagar",
+                    "time": "18 min",
+                    "cost": "₹16"
+                },
+                {
+                    "startPoint": "Warje",
+                    "endPoint": "Shaniwarwada",
+                    "time": "25 min",
+                    "cost": "₹18"
+                },
+                {
+                    "startPoint": "Sinhagad Road",
+                    "endPoint": "Swargate",
+                    "time": "30 min",
+                    "cost": "₹20"
+                },
+                {
+                    "startPoint": "Bavdhan",
+                    "endPoint": "Kothrud",
+                    "time": "15 min",
+                    "cost": "₹12"
+                },
+                {
+                    "startPoint": "Hadapsar",
+                    "endPoint": "Camp",
+                    "time": "25 min",
+                    "cost": "₹18"
+                },
+                {
+                    "startPoint": "Kothrud",
+                    "endPoint": "FC Road",
+                    "time": "20 min",
+                    "cost": "₹15"
+                },
+                {
+                    "startPoint": "Aundh",
+                    "endPoint": "Baner",
+                    "time": "12 min",
+                    "cost": "₹10"
+                }
+            ]
+        }
+    }
+}

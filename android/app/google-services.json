@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "510690990807",
+    "project_id": "letsexplore-38458",
+    "storage_bucket": "letsexplore-38458.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:510690990807:android:332225a190a54470e66e92",
+        "android_client_info": {
+          "package_name": "com.example.travelapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxI76zyYC3OLw5rB_iZf99Ax2QaS7YeT8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
