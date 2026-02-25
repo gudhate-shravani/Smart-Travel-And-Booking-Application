@@ -1230,8 +1230,8 @@ class RecommendationItem {
 
 class TravelApiRealClient {
   // 🔑 REPLACE WITH YOUR ACTUAL KEYS AND ENDPOINTS
-  static const String _geminiApiKey = 'AIzaSyBFSi_4N951bnJFgh8XofLqRwYZGZE3Ndk';
-  static const String _unsplashAccessKey = 'a4WGz3AndhdDhQzZL0TBeKdTTAfUwgh1M2_vLp85iPw';
+  static const String _geminiApiKey = 'gemini api key';
+  static const String _unsplashAccessKey = 'unsplash api key';
   static const String _geminiApiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=$_geminiApiKey';
   static const String _unsplashBaseUrl = 'https://api.unsplash.com/search/photos';
 

@@ -463,7 +463,7 @@ import 'package:geocoding/geocoding.dart' as geocod;
 import 'package:http/http.dart' as http;
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 
-const String GOOGLE_API_KEY = 'AIzaSyC-d7WK6cZDT0RIbWhnwGjRLkrKPR3IPCY'; // <<-- Replace this
+const String GOOGLE_API_KEY = 'location  ggoole apikey'; // <<-- Replace this
 
 class LocationScreen extends StatefulWidget {
   const LocationScreen({super.key});

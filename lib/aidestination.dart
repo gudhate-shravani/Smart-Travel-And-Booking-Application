@@ -899,10 +899,10 @@ import 'package:http/http.dart' as http;
 import 'package:geolocator/geolocator.dart';
 
 // ✅ REPLACE WITH YOUR SECURELY STORED KEY (don’t hardcode in production)
-const String GEMINI_API_KEY = "AIzaSyDH-g28cH0QrS_Qru4CAn8RvZgjCC_jE20";
+const String GEMINI_API_KEY = "Gemini API key — replace with your own from Google AI Studio";
 
 // --- Unsplash API Key (placeholder) ---
-const String UNSPLASH_ACCESS_KEY = "a4WGz3AndhdDhQzZL0TBeKdTTAfUwgh1M2_vLp85iPw";
+const String UNSPLASH_ACCESS_KEY = "Unsplash API Key ";
 
 // --- 1. DATA MODELS ---
 class Destination {

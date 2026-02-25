@@ -431,7 +431,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
   bool _isGridView = false;
 
   // --- Replace with your Unsplash Access Key ---
-  static const String unsplashAccessKey = 'a4WGz3AndhdDhQzZL0TBeKdTTAfUwgh1M2_vLp85iPw';
+  static const String unsplashAccessKey = 'Unsplash API Key ';
 
   // --- Get current user location ---
   Future<Position> _getCurrentLocation() async {

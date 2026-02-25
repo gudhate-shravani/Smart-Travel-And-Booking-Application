@@ -37,7 +37,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     // Using gemini-2.5-flash for fast response and good JSON generation.
     _model = GenerativeModel(
         model: 'gemini-2.5-flash', 
-        apiKey: 'AIzaSyBFSi_4N951bnJFgh8XofLqRwYZGZE3Ndk', // IMPORTANT: Replace or ensure _apiKey is accessible
+        apiKey: ' Replace this with your actual Gemini API Key', // IMPORTANT: Replace or ensure _apiKey is accessible
     );
   }
 

@@ -13,8 +13,8 @@ import 'package:http/http.dart' as http;
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 /// Replace with your real keys
-const String GOOGLE_MAPS_API_KEY = "AIzaSyC-d7WK6cZDT0RIbWhnwGjRLkrKPR3IPCY";
-const String RAZORPAY_KEY_PLACEHOLDER = "rzp_test_RaXt8zyzOapu8L";
+const String GOOGLE_MAPS_API_KEY = "YOUR_API_KEY";
+const String RAZORPAY_KEY_PLACEHOLDER = "your_razorpay_placeholder";
 
 /// A widget that is safe to embed inside your page (does NOT return a Scaffold).
 /// Use it like: _selectedMainTab == 1 ? const RentalTab() : ...

@@ -8,7 +8,7 @@ import 'welcome_screen.dart';
 
 // ⚠️ IMPORTANT: Replace 'YOUR_API_KEY' with your actual Gemini API Key
 // In a real app, you would load this from an environment variable (e.g., .env file).
-const String _apiKey = "AIzaSyBFSi_4N951bnJFgh8XofLqRwYZGZE3Ndk"; 
+const String _apiKey = "YOUR_API_KEY"; 
 void main() {
   // 1. Initialize the AI client
   if (_apiKey.isEmpty || _apiKey == 'YOUR_API_KEY') {

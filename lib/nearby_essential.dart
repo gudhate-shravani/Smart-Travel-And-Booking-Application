@@ -454,7 +454,7 @@ class _NearbyEssentialsScreenState extends State<NearbyEssentialsScreen> {
   bool _isLoading = false;
 
   // 🛑 IMPORTANT: REPLACE THIS WITH YOUR ACTUAL GOOGLE PLACES API KEY
-  final String _googlePlacesApiKey = 'AIzaSyC-d7WK6cZDT0RIbWhnwGjRLkrKPR3IPCY'; 
+  final String _googlePlacesApiKey = ' REPLACE THIS WITH YOUR ACTUAL GOOGLE PLACES API KEY'; 
 
   @override
   void initState() {

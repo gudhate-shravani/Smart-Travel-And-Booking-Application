@@ -26,7 +26,7 @@ class _AICoGuideScreenState extends State<AICoGuideScreen> {
   File? _pickedImage;
 
   // --- Put your Gemini API key here ---
-  final String apiKey = 'AIzaSyDH-g28cH0QrS_Qru4CAn8RvZgjCC_jE20';
+  final String apiKey = 'Put your Gemini API key here';
 
   // --- Generic helper: extract first meaningful string from Gemini response JSON ---
   String _extractTextFromResponse(dynamic json) {

@@ -9,7 +9,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:http/http.dart' as http;
 
-const String GOOGLE_MAPS_API_KEY = "AIzaSyC-d7WK6cZDT0RIbWhnwGjRLkrKPR3IPCY";
+const String GOOGLE_MAPS_API_KEY = " Replace this with your actual map API Key";
 
 class ViewLocationPage extends StatefulWidget {
   final String driverEmail;

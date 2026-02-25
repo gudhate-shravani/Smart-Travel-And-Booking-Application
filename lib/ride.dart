@@ -21,7 +21,7 @@ import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 // --- CONFIG ---
 // Put your Google Maps + Directions + Geocoding API key here. If empty, route/ETA/geocoding will fall back to OSM/simple methods.
-const String GOOGLE_MAPS_API_KEY = "AIzaSyC-d7WK6cZDT0RIbWhnwGjRLkrKPR3IPCY";
+const String GOOGLE_MAPS_API_KEY = "goole_map_api_key";
 
 /// Distance threshold (meters) to consider "arrived" at pickup/destination (original small threshold)
 const double ARRIVAL_THRESHOLD_METERS = 50.0;

@@ -1037,7 +1037,7 @@ class _BudgetChatScreenState extends State<BudgetChatScreen> {
 
   BudgetEstimate? _budgetData;
 
-  final GeminiService _geminiService = GeminiService(apiKey: 'AIzaSyDH-g28cH0QrS_Qru4CAn8RvZgjCC_jE20'); // Instantiate the service
+  final GeminiService _geminiService = GeminiService(apiKey: 'gemini api key'); // Instantiate the service
   final List<String> availableStyles = ['Economy', 'Mid-Range', 'Luxury'];
 
   void _nextStep() {

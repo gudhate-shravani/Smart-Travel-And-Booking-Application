@@ -1151,7 +1151,7 @@ import 'dart:convert'; // For JSON decoding
 
 // IMPORTANT: Replace this with your actual Gemini API Key
 // In a real app, use environment variables for security.
-const String _GEMINI_API_KEY = "AIzaSyDH-g28cH0QrS_Qru4CAn8RvZgjCC_jE20";
+const String _GEMINI_API_KEY = " Replace this with your actual Gemini API Key";
 
 class GeminiService {
   final GenerativeModel _model = GenerativeModel(

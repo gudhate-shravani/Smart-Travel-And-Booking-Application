@@ -266,7 +266,7 @@ class _AIScriptGeneratorScreenState extends State<AIScriptGeneratorScreen> {
   final FlutterTts flutterTts = FlutterTts();
 
   // Gemini API key — replace with your own from Google AI Studio
-  static const String geminiApiKey = 'AIzaSyDH-g28cH0QrS_Qru4CAn8RvZgjCC_jE20';
+  static const String geminiApiKey = 'Gemini API key — replace with your own from Google AI Studio';
 
   // Gemini Endpoint
  static const String geminiEndpoint =
