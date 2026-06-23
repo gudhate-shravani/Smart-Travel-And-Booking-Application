@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'dart:convert'; // For parsing JSON
 import 'package:http/http.dart' as http; // For API calls
@@ -38,27 +40,27 @@ class _HomeScreenState extends State<HomeScreen> {
   // Master list of all routes
   final List<RouteData> _allRoutes = [
     // --- Maharashtra Routes ---
-    RouteData(from: 'Pune', to: 'Mumbai', time: '3h 30m', price: '₹750', transportIcons: [Icons.directions_bus, Icons.local_taxi], legs: [const RouteLeg(icon: Icons.directions_bus, title: 'Bus', description: 'Swargate (Pune) → Dadar Circle (Mumbai)', time: '3h', price: '₹600'), const RouteLeg(icon: Icons.local_taxi, title: 'Taxi', description: 'Dadar Circle → Gateway of India', time: '30m', price: '₹150'),],),
-    RouteData(from: 'Pune', to: 'Nashik', time: '5h 15m', price: '₹1,100', transportIcons: [Icons.directions_bus, Icons.local_taxi], legs: [const RouteLeg(icon: Icons.directions_bus, title: 'Bus', description: 'Pune Shivajinagar → Nashik CBS', time: '4h 30m', price: '₹800'), const RouteLeg(icon: Icons.local_taxi, title: 'Taxi', description: 'Nashik CBS → Trimbakeshwar', time: '45m', price: '₹300'),],),
-    RouteData(from: 'Pune', to: 'Nagpur', time: '13h 45m', price: '₹2,500', transportIcons: [Icons.local_taxi, Icons.train], legs: [const RouteLeg(icon: Icons.local_taxi, title: 'Taxi', description: 'Your Location → Pune Station (PUNE)', time: '30m', price: '₹300'), const RouteLeg(icon: Icons.train, title: 'Train', description: 'Pune Station (PUNE) → Nagpur (NGP)', time: '13h 15m', price: '₹2,200'),],),
-    RouteData(from: 'Pune', to: 'Mahabaleshwar', time: '3h 30m', price: '₹650', transportIcons: [Icons.directions_bus, Icons.local_taxi], legs: [const RouteLeg(icon: Icons.directions_bus, title: 'Bus', description: 'Pune → Mahabaleshwar Bus Stand', time: '3h 15m', price: '₹500'), const RouteLeg(icon: Icons.local_taxi, title: 'Taxi', description: 'Bus Stand → Lodwick Point', time: '15m', price: '₹150'),],),
-    RouteData(from: 'Pune', to: 'Aurangabad', time: '5h 00m', price: '₹950', transportIcons: [Icons.directions_bus, Icons.local_taxi], legs: [const RouteLeg(icon: Icons.directions_bus, title: 'Bus', description: 'Pune → Aurangabad CBS', time: '4h 30m', price: '₹700'), const RouteLeg(icon: Icons.local_taxi, title: 'Taxi', description: 'Aurangabad CBS → Ellora Caves', time: '30m', price: '₹250'),],),
-    RouteData(from: 'Pune', to: 'Kolhapur', time: '4h 15m', price: '₹700', transportIcons: [Icons.train, Icons.local_taxi], legs: [const RouteLeg(icon: Icons.train, title: 'Train', description: 'Pune Station (PUNE) → Kolhapur (KOP)', time: '4h', price: '₹500'), const RouteLeg(icon: Icons.local_taxi, title: 'Taxi', description: 'Kolhapur Station → Mahalakshmi Temple', time: '15m', price: '₹200'),],),
-    RouteData(from: 'Pune', to: 'Shirdi', time: '4h 30m', price: '₹600', transportIcons: [Icons.directions_bus, Icons.directions_walk], legs: [const RouteLeg(icon: Icons.directions_bus, title: 'Bus', description: 'Pune (Shivajinagar) → Shirdi Bus Stand', time: '4h 15m', price: '₹600'), const RouteLeg(icon: Icons.directions_walk, title: 'Walk', description: 'Bus Stand → Sai Baba Temple', time: '15m', price: '₹0'),],),
-    RouteData(from: 'Pune', to: 'Alibag', time: '5h 00m', price: '₹900', transportIcons: [Icons.directions_bus, Icons.directions_boat, Icons.directions_bus], legs: [const RouteLeg(icon: Icons.directions_bus, title: 'Bus', description: 'Pune → Gateway of India (Mumbai)', time: '3h 30m', price: '₹600'), const RouteLeg(icon: Icons.directions_boat, title: 'Ferry', description: 'Gateway of India → Mandwa Jetty', time: '1h', price: '₹200'), const RouteLeg(icon: Icons.directions_bus, title: 'Bus', description: 'Mandwa Jetty → Alibag Bus Stand', time: '30m', price: '₹100'),],),
+    RouteData(from: 'Pune', to: 'Mumbai', time: '3h 30m', price: 'â‚¹750', transportIcons: [Icons.directions_bus, Icons.local_taxi], legs: [const RouteLeg(icon: Icons.directions_bus, title: 'Bus', description: 'Swargate (Pune) â†’ Dadar Circle (Mumbai)', time: '3h', price: 'â‚¹600'), const RouteLeg(icon: Icons.local_taxi, title: 'Taxi', description: 'Dadar Circle â†’ Gateway of India', time: '30m', price: 'â‚¹150'),],),
+    RouteData(from: 'Pune', to: 'Nashik', time: '5h 15m', price: 'â‚¹1,100', transportIcons: [Icons.directions_bus, Icons.local_taxi], legs: [const RouteLeg(icon: Icons.directions_bus, title: 'Bus', description: 'Pune Shivajinagar â†’ Nashik CBS', time: '4h 30m', price: 'â‚¹800'), const RouteLeg(icon: Icons.local_taxi, title: 'Taxi', description: 'Nashik CBS â†’ Trimbakeshwar', time: '45m', price: 'â‚¹300'),],),
+    RouteData(from: 'Pune', to: 'Nagpur', time: '13h 45m', price: 'â‚¹2,500', transportIcons: [Icons.local_taxi, Icons.train], legs: [const RouteLeg(icon: Icons.local_taxi, title: 'Taxi', description: 'Your Location â†’ Pune Station (PUNE)', time: '30m', price: 'â‚¹300'), const RouteLeg(icon: Icons.train, title: 'Train', description: 'Pune Station (PUNE) â†’ Nagpur (NGP)', time: '13h 15m', price: 'â‚¹2,200'),],),
+    RouteData(from: 'Pune', to: 'Mahabaleshwar', time: '3h 30m', price: 'â‚¹650', transportIcons: [Icons.directions_bus, Icons.local_taxi], legs: [const RouteLeg(icon: Icons.directions_bus, title: 'Bus', description: 'Pune â†’ Mahabaleshwar Bus Stand', time: '3h 15m', price: 'â‚¹500'), const RouteLeg(icon: Icons.local_taxi, title: 'Taxi', description: 'Bus Stand â†’ Lodwick Point', time: '15m', price: 'â‚¹150'),],),
+    RouteData(from: 'Pune', to: 'Aurangabad', time: '5h 00m', price: 'â‚¹950', transportIcons: [Icons.directions_bus, Icons.local_taxi], legs: [const RouteLeg(icon: Icons.directions_bus, title: 'Bus', description: 'Pune â†’ Aurangabad CBS', time: '4h 30m', price: 'â‚¹700'), const RouteLeg(icon: Icons.local_taxi, title: 'Taxi', description: 'Aurangabad CBS â†’ Ellora Caves', time: '30m', price: 'â‚¹250'),],),
+    RouteData(from: 'Pune', to: 'Kolhapur', time: '4h 15m', price: 'â‚¹700', transportIcons: [Icons.train, Icons.local_taxi], legs: [const RouteLeg(icon: Icons.train, title: 'Train', description: 'Pune Station (PUNE) â†’ Kolhapur (KOP)', time: '4h', price: 'â‚¹500'), const RouteLeg(icon: Icons.local_taxi, title: 'Taxi', description: 'Kolhapur Station â†’ Mahalakshmi Temple', time: '15m', price: 'â‚¹200'),],),
+    RouteData(from: 'Pune', to: 'Shirdi', time: '4h 30m', price: 'â‚¹600', transportIcons: [Icons.directions_bus, Icons.directions_walk], legs: [const RouteLeg(icon: Icons.directions_bus, title: 'Bus', description: 'Pune (Shivajinagar) â†’ Shirdi Bus Stand', time: '4h 15m', price: 'â‚¹600'), const RouteLeg(icon: Icons.directions_walk, title: 'Walk', description: 'Bus Stand â†’ Sai Baba Temple', time: '15m', price: 'â‚¹0'),],),
+    RouteData(from: 'Pune', to: 'Alibag', time: '5h 00m', price: 'â‚¹900', transportIcons: [Icons.directions_bus, Icons.directions_boat, Icons.directions_bus], legs: [const RouteLeg(icon: Icons.directions_bus, title: 'Bus', description: 'Pune â†’ Gateway of India (Mumbai)', time: '3h 30m', price: 'â‚¹600'), const RouteLeg(icon: Icons.directions_boat, title: 'Ferry', description: 'Gateway of India â†’ Mandwa Jetty', time: '1h', price: 'â‚¹200'), const RouteLeg(icon: Icons.directions_bus, title: 'Bus', description: 'Mandwa Jetty â†’ Alibag Bus Stand', time: '30m', price: 'â‚¹100'),],),
     
     // --- Other Domestic Routes ---
-    RouteData(from: 'Pune', to: 'Goa', time: '10h 30m', price: '₹1,800', transportIcons: [Icons.directions_bus, Icons.local_taxi], legs: [const RouteLeg(icon: Icons.directions_bus, title: 'Bus', description: 'Pune (Hinjewadi) → Panjim (Goa)', time: '10h', price: '₹1,500'), const RouteLeg(icon: Icons.local_taxi, title: 'Taxi', description: 'Panjim → Calangute Beach', time: '30m', price: '₹300'),],),
-    RouteData(from: 'Pune', to: 'Bangalore', time: '1h 30m', price: '₹3,500', transportIcons: [Icons.flight_takeoff], legs: [const RouteLeg(icon: Icons.flight_takeoff, title: 'Flight', description: 'Pune (PNQ) → Bangalore (BLR)', time: '1h 30m', price: '₹3,500'),],),
-    RouteData(from: 'Pune', to: 'Chennai', time: '1h 45m', price: '₹4,200', transportIcons: [Icons.local_taxi, Icons.flight_takeoff], legs: [const RouteLeg(icon: Icons.local_taxi, title: 'Taxi', description: 'Home → Pune Airport (PNQ)', time: '45m', price: '₹400'), const RouteLeg(icon: Icons.flight_takeoff, title: 'Flight', description: 'Pune (PNQ) → Chennai (MAA)', time: '1h 45m', price: '₹3,800'),],),
-    RouteData(from: 'Mumbai', to: 'Delhi', time: '2h 10m', price: '₹5,000', transportIcons: [Icons.flight_takeoff], legs: [const RouteLeg(icon: Icons.flight_takeoff, title: 'Flight', description: 'Mumbai (BOM) → Delhi (DEL)', time: '2h 10m', price: '₹5,000'),],),
-    RouteData(from: 'Mumbai', to: 'Kanyakumari', time: '28h 15m', price: '₹2,800', transportIcons: [Icons.train, Icons.local_taxi], legs: [const RouteLeg(icon: Icons.train, title: 'Train', description: 'Mumbai Central (MMCT) → Nagercoil (NCJ)', time: '27h 30m', price: '₹2,000'), const RouteLeg(icon: Icons.local_taxi, title: 'Taxi', description: 'Nagercoil Station → Kanyakumari Beach', time: '45m', price: '₹800'),],),
+    RouteData(from: 'Pune', to: 'Goa', time: '10h 30m', price: 'â‚¹1,800', transportIcons: [Icons.directions_bus, Icons.local_taxi], legs: [const RouteLeg(icon: Icons.directions_bus, title: 'Bus', description: 'Pune (Hinjewadi) â†’ Panjim (Goa)', time: '10h', price: 'â‚¹1,500'), const RouteLeg(icon: Icons.local_taxi, title: 'Taxi', description: 'Panjim â†’ Calangute Beach', time: '30m', price: 'â‚¹300'),],),
+    RouteData(from: 'Pune', to: 'Bangalore', time: '1h 30m', price: 'â‚¹3,500', transportIcons: [Icons.flight_takeoff], legs: [const RouteLeg(icon: Icons.flight_takeoff, title: 'Flight', description: 'Pune (PNQ) â†’ Bangalore (BLR)', time: '1h 30m', price: 'â‚¹3,500'),],),
+    RouteData(from: 'Pune', to: 'Chennai', time: '1h 45m', price: 'â‚¹4,200', transportIcons: [Icons.local_taxi, Icons.flight_takeoff], legs: [const RouteLeg(icon: Icons.local_taxi, title: 'Taxi', description: 'Home â†’ Pune Airport (PNQ)', time: '45m', price: 'â‚¹400'), const RouteLeg(icon: Icons.flight_takeoff, title: 'Flight', description: 'Pune (PNQ) â†’ Chennai (MAA)', time: '1h 45m', price: 'â‚¹3,800'),],),
+    RouteData(from: 'Mumbai', to: 'Delhi', time: '2h 10m', price: 'â‚¹5,000', transportIcons: [Icons.flight_takeoff], legs: [const RouteLeg(icon: Icons.flight_takeoff, title: 'Flight', description: 'Mumbai (BOM) â†’ Delhi (DEL)', time: '2h 10m', price: 'â‚¹5,000'),],),
+    RouteData(from: 'Mumbai', to: 'Kanyakumari', time: '28h 15m', price: 'â‚¹2,800', transportIcons: [Icons.train, Icons.local_taxi], legs: [const RouteLeg(icon: Icons.train, title: 'Train', description: 'Mumbai Central (MMCT) â†’ Nagercoil (NCJ)', time: '27h 30m', price: 'â‚¹2,000'), const RouteLeg(icon: Icons.local_taxi, title: 'Taxi', description: 'Nagercoil Station â†’ Kanyakumari Beach', time: '45m', price: 'â‚¹800'),],),
 
     // --- International (Abroad) Routes ---
-    RouteData(from: 'Pune', to: 'Dubai', time: '4h 30m', price: '₹12,500', transportIcons: [Icons.local_taxi, Icons.flight_takeoff], legs: [const RouteLeg(icon: Icons.local_taxi, title: 'Taxi', description: 'Swargate → Pune Airport (PNQ)', time: '45m', price: '₹500'), const RouteLeg(icon: Icons.flight_takeoff, title: 'Flight', description: 'Pune (PNQ) → Dubai (DXB)', time: '3h 45m', price: '₹12,000'),],),
-    RouteData(from: 'Pune', to: 'Singapore', time: '8h 15m', price: '₹22,000', transportIcons: [Icons.flight_takeoff, Icons.flight_takeoff], legs: [const RouteLeg(icon: Icons.flight_takeoff, title: 'Flight', description: 'Pune (PNQ) → Bangalore (BLR)', time: '1h 30m', price: '₹3,500'), const RouteLeg(icon: Icons.flight_takeoff, title: 'Flight', description: 'Bangalore (BLR) → Singapore (SIN)', time: '4h 45m', price: '₹18,500'),],),
-    RouteData(from: 'Delhi', to: 'London', time: '9h 30m', price: '₹48,000', transportIcons: [Icons.flight_takeoff], legs: [const RouteLeg(icon: Icons.flight_takeoff, title: 'Flight', description: 'Delhi (DEL) → London-Heathrow (LHR)', time: '9h 30m', price: '₹48,000'),],),
-    RouteData(from: 'Pune', to: 'Paris', time: '14h 30m', price: '₹45,000', transportIcons: [Icons.directions_bus, Icons.flight_takeoff], legs: [const RouteLeg(icon: Icons.directions_bus, title: 'Bus', description: 'Pune Station (Stop 2) → Pune Airport (PNQ)', time: '45m', price: '₹150'), const RouteLeg(icon: Icons.flight_takeoff, title: 'Flight', description: 'Pune (PNQ) → Paris-CDG (via DXB)', time: '13h 45m', price: '₹44,850'),],),
+    RouteData(from: 'Pune', to: 'Dubai', time: '4h 30m', price: 'â‚¹12,500', transportIcons: [Icons.local_taxi, Icons.flight_takeoff], legs: [const RouteLeg(icon: Icons.local_taxi, title: 'Taxi', description: 'Swargate â†’ Pune Airport (PNQ)', time: '45m', price: 'â‚¹500'), const RouteLeg(icon: Icons.flight_takeoff, title: 'Flight', description: 'Pune (PNQ) â†’ Dubai (DXB)', time: '3h 45m', price: 'â‚¹12,000'),],),
+    RouteData(from: 'Pune', to: 'Singapore', time: '8h 15m', price: 'â‚¹22,000', transportIcons: [Icons.flight_takeoff, Icons.flight_takeoff], legs: [const RouteLeg(icon: Icons.flight_takeoff, title: 'Flight', description: 'Pune (PNQ) â†’ Bangalore (BLR)', time: '1h 30m', price: 'â‚¹3,500'), const RouteLeg(icon: Icons.flight_takeoff, title: 'Flight', description: 'Bangalore (BLR) â†’ Singapore (SIN)', time: '4h 45m', price: 'â‚¹18,500'),],),
+    RouteData(from: 'Delhi', to: 'London', time: '9h 30m', price: 'â‚¹48,000', transportIcons: [Icons.flight_takeoff], legs: [const RouteLeg(icon: Icons.flight_takeoff, title: 'Flight', description: 'Delhi (DEL) â†’ London-Heathrow (LHR)', time: '9h 30m', price: 'â‚¹48,000'),],),
+    RouteData(from: 'Pune', to: 'Paris', time: '14h 30m', price: 'â‚¹45,000', transportIcons: [Icons.directions_bus, Icons.flight_takeoff], legs: [const RouteLeg(icon: Icons.directions_bus, title: 'Bus', description: 'Pune Station (Stop 2) â†’ Pune Airport (PNQ)', time: '45m', price: 'â‚¹150'), const RouteLeg(icon: Icons.flight_takeoff, title: 'Flight', description: 'Pune (PNQ) â†’ Paris-CDG (via DXB)', time: '13h 45m', price: 'â‚¹44,850'),],),
   ];
 
   List<RouteData> _displayedRoutes = [];
@@ -179,7 +181,7 @@ class _HomeScreenState extends State<HomeScreen> {
         borderRadius: BorderRadius.circular(24.0),
         boxShadow: [
           BoxShadow(
-            color: Colors.blue.withOpacity(0.05),
+            color: Colors.blue.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -273,7 +275,7 @@ class _RouteInfoCardState extends State<RouteInfoCard> {
   Widget build(BuildContext context) {
     return Card(
       elevation: 4,
-      shadowColor: Colors.blue.withOpacity(0.1),
+      shadowColor: Colors.blue.withValues(alpha: 0.1),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
       margin: const EdgeInsets.all(0),
       child: ClipRRect(
@@ -315,7 +317,7 @@ class _RouteInfoCardState extends State<RouteInfoCard> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '${widget.from} → ${widget.to}',
+              '${widget.from} â†’ ${widget.to}',
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
@@ -346,14 +348,14 @@ class _RouteInfoCardState extends State<RouteInfoCard> {
         _buildSummaryChip(
           icon: Icons.access_time_filled,
           text: widget.time,
-          backgroundColor: Colors.orange.withOpacity(0.1),
+          backgroundColor: Colors.orange.withValues(alpha: 0.1),
           foregroundColor: Colors.orange.shade800,
         ),
         const SizedBox(width: 12),
         _buildSummaryChip(
           icon: Icons.monetization_on,
           text: widget.price,
-          backgroundColor: Colors.green.withOpacity(0.1),
+          backgroundColor: Colors.green.withValues(alpha: 0.1),
           foregroundColor: Colors.green.shade800,
         ),
       ],
@@ -473,7 +475,7 @@ class _GradientButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(16.0),
         boxShadow: [
           BoxShadow(
-            color: Colors.blue.withOpacity(0.3),
+            color: Colors.blue.withValues(alpha: 0.3),
             blurRadius: 8,
             offset: const Offset(0, 4),
           ),
@@ -524,10 +526,11 @@ class Station {
     String type = 'location_pin';
     if (json['types'] != null) {
       List<dynamic> types = json['types'];
-      if (types.contains('airport')) type = 'airport';
-      else if (types.contains('train_station')) type = 'train';
-      else if (types.contains('bus_station')) type = 'bus';
-      else if (types.contains('bus_stop')) type = 'bus_stop'; // Catches PMT stops
+      if (types.contains('airport')) {
+        type = 'airport';
+      } else if (types.contains('train_station')){ type = 'train';}
+      else if (types.contains('bus_station')) {type = 'bus';}
+      else if (types.contains('bus_stop')) {type = 'bus_stop';} // Catches PMT stops
     }
 
     return Station(

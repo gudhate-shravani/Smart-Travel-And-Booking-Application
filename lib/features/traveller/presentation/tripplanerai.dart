@@ -1,5 +1,7 @@
+﻿
 
 
+// ignore_for_file: constant_identifier_names
 
 import 'package:flutter/material.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
@@ -27,7 +29,7 @@ class GeminiService {
   }) async {
     if (_GEMINI_API_KEY == "YOUR_API_KEY_HERE" || _GEMINI_API_KEY.isEmpty) {
       // Return a structured error response or throw an exception
-      print("Gemini API key is not set. Please update _GEMINI_API_KEY.");
+      debugPrint("Gemini API key is not set. Please update _GEMINI_API_KEY.");
       return null;
     }
 
@@ -83,7 +85,7 @@ class GeminiService {
       final Map<String, dynamic> jsonResponse = jsonDecode(jsonText);
       return jsonResponse;
     } catch (e) {
-      print("Gemini API Error: $e");
+      debugPrint("Gemini API Error: $e");
       return null;
     }
   }
@@ -233,8 +235,8 @@ class StartScreen extends StatelessWidget {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              gradientColors.startColor.withOpacity(0.1),
-              gradientColors.endColor.withOpacity(0.1)
+              gradientColors.startColor.withValues(alpha: 0.1),
+              gradientColors.endColor.withValues(alpha: 0.1)
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -434,7 +436,7 @@ class _PlanningChatScreenState extends State<PlanningChatScreen> {
           Expanded(
             child: ListView(
               children: [
-                _buildChatBubble('Hi traveler! 🌎 Where do you want to go?', false),
+                _buildChatBubble('Hi traveler! Ã°Å¸Å’Å½ Where do you want to go?', false),
                 if (destination != null)
                   _buildChatBubble(destination!, true),
                 if (destination != null)
@@ -563,7 +565,7 @@ class _PlanningChatScreenState extends State<PlanningChatScreen> {
                 });
               },
               backgroundColor: const Color(0xFFF3F4F6),
-              selectedColor: Theme.of(context).extension<GradientColors>()!.startColor.withOpacity(0.2),
+              selectedColor: Theme.of(context).extension<GradientColors>()!.startColor.withValues(alpha: 0.2),
               labelStyle: TextStyle(
                 color: isSelected ? Theme.of(context).extension<GradientColors>()!.startColor : Colors.black87,
                 fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
@@ -753,7 +755,7 @@ class _GeneratingTripScreenState extends State<GeneratingTripScreen> {
                     ],
                   ),
                 );
-              }).toList(),
+              }),
               const SizedBox(height: 40),
               // Simple Linear Progress Bar
               LinearProgressIndicator(
@@ -797,8 +799,8 @@ class TripReadyScreen extends StatelessWidget {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              gradientColors.startColor.withOpacity(0.1),
-              gradientColors.endColor.withOpacity(0.1)
+              gradientColors.startColor.withValues(alpha: 0.1),
+              gradientColors.endColor.withValues(alpha: 0.1)
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -846,7 +848,7 @@ class TripReadyScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(20),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.grey.withOpacity(0.1),
+                              color: Colors.grey.withValues(alpha: 0.1),
                               spreadRadius: 2,
                               blurRadius: 5,
                               offset: const Offset(0, 3),
@@ -877,7 +879,7 @@ class TripReadyScreen extends StatelessWidget {
                                   ),
                                   const SizedBox(height: 5),
                                   Text(
-                                    '📅 $days Days of Exploration',
+                                    'Ã°Å¸â€œâ€¦ $days Days of Exploration',
                                     style: const TextStyle(
                                       color: Colors.white70,
                                       fontSize: 16,
@@ -1026,7 +1028,7 @@ class ItineraryScreen extends StatelessWidget {
                         ],
                       ),
                       Text(
-                        '$days-day trip: ${tripTitle}',
+                        '$days-day trip: $tripTitle',
                         style: const TextStyle(color: Colors.grey, fontSize: 14),
                       ),
                       const SizedBox(height: 8),
@@ -1069,7 +1071,7 @@ class ItineraryScreen extends StatelessWidget {
                   background: Container(
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                        colors: [gradientColors.startColor.withOpacity(0.1), gradientColors.endColor.withOpacity(0.1)],
+                        colors: [gradientColors.startColor.withValues(alpha: 0.1), gradientColors.endColor.withValues(alpha: 0.1)],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                       ),
@@ -1118,7 +1120,7 @@ class ItineraryScreen extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             decoration: BoxDecoration(
-              color: Theme.of(context).extension<GradientColors>()!.startColor.withOpacity(0.1),
+              color: Theme.of(context).extension<GradientColors>()!.startColor.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(15),
             ),
             child: Text(
@@ -1168,7 +1170,7 @@ class ItineraryScreen extends StatelessWidget {
                 ],
               ),
             );
-          }).toList(),
+          }),
         ],
       ),
     );
@@ -1209,7 +1211,7 @@ class ItineraryScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [Colors.black.withOpacity(0.0), Colors.black.withOpacity(0.5)],
+                    colors: [Colors.black.withValues(alpha: 0.0), Colors.black.withValues(alpha: 0.5)],
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                   ),

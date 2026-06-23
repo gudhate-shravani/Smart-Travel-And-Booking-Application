@@ -1,3 +1,5 @@
+﻿// ignore_for_file: use_build_context_synchronously
+
 /*import 'package:flutter/material.dart';
 
 class DocumentVaultScreen extends StatelessWidget {
@@ -265,7 +267,7 @@ class _CategoryCard extends StatelessWidget {
       ),
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       child: Column(
-        mainAxisSize: MainAxisSize.min, // ✅ Prevents overflow
+        mainAxisSize: MainAxisSize.min, // âœ… Prevents overflow
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Flexible(
@@ -318,7 +320,7 @@ class _DocumentTile extends StatelessWidget {
           child: Icon(Icons.insert_drive_file, color: Colors.white),
         ),
         title: Text(name, style: const TextStyle(fontWeight: FontWeight.w600)),
-        subtitle: Text('$size  •  $date'),
+        subtitle: Text('$size  â€¢  $date'),
         trailing: Wrap(
           spacing: 10,
           children: const [
@@ -357,7 +359,7 @@ class _DocumentVaultScreenState extends State<DocumentVaultScreen> {
     _loadSavedDocuments();
   }
 
-  /// 🔹 Load saved documents from SharedPreferences
+  /// ðŸ”¹ Load saved documents from SharedPreferences
   Future<void> _loadSavedDocuments() async {
     final prefs = await SharedPreferences.getInstance();
     final paths = prefs.getStringList('saved_docs') ?? [];
@@ -368,7 +370,7 @@ class _DocumentVaultScreenState extends State<DocumentVaultScreen> {
     });
   }
 
-  /// 🔹 Pick an image and save locally
+  /// ðŸ”¹ Pick an image and save locally
   Future<void> _pickDocument() async {
     final ImagePicker picker = ImagePicker();
     final XFile? pickedFile =
@@ -392,14 +394,14 @@ class _DocumentVaultScreenState extends State<DocumentVaultScreen> {
     );
   }
 
-  /// 🔹 Save file paths to SharedPreferences
+  /// ðŸ”¹ Save file paths to SharedPreferences
   Future<void> _saveDocumentsToPrefs() async {
     final prefs = await SharedPreferences.getInstance();
     final paths = _uploadedDocs.map((f) => f.path).toList();
     await prefs.setStringList('saved_docs', paths);
   }
 
-  /// 🔹 Delete a document
+  /// ðŸ”¹ Delete a document
   void _deleteDocument(int index) async {
     final fileToDelete = _uploadedDocs[index];
     if (await fileToDelete.exists()) {
@@ -413,7 +415,7 @@ class _DocumentVaultScreenState extends State<DocumentVaultScreen> {
     await _saveDocumentsToPrefs();
   }
 
-  /// 🔹 View image in dialog
+  /// ðŸ”¹ View image in dialog
   void _viewDocument(File docFile) {
     showDialog(
       context: context,

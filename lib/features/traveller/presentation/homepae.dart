@@ -1,3 +1,5 @@
+﻿// ignore_for_file: deprecated_member_use, use_build_context_synchronously
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
@@ -5,7 +7,6 @@ import 'all_in_one_ai.dart';
 import 'taj_mahal.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'explore.dart';
-import 'all_in_one_ai.dart';
 
 // You might need to add this to your pubspec.yaml for the icons:
 // dependencies:
@@ -114,7 +115,7 @@ class _TravelDashboardBodyState extends State<TravelDashboardBody> {
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.purple.withOpacity(0.3),
+            color: Colors.purple.withValues(alpha: 0.3),
             blurRadius: 10,
             offset: const Offset(0, 5),
           ),
@@ -168,7 +169,7 @@ class _TravelDashboardBodyState extends State<TravelDashboardBody> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.2),
+        color: Colors.white.withValues(alpha: 0.2),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Text(
@@ -217,7 +218,7 @@ class _TravelDashboardBodyState extends State<TravelDashboardBody> {
           Container(
             height: 150,
             decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.4),
+              color: Colors.black.withValues(alpha: 0.4),
             ),
           ),
           // Using a Column with MainAxisSize.min to ensure it doesn't take up the full stack height
@@ -235,7 +236,7 @@ class _TravelDashboardBodyState extends State<TravelDashboardBody> {
               ),
               const SizedBox(height: 4),
               const Text(
-                'Experience destinations in immersive 360°',
+                'Experience destinations in immersive 360Ã‚Â°',
                 style: TextStyle(color: Colors.white70),
               ),
               const SizedBox(height: 12),
@@ -244,7 +245,7 @@ class _TravelDashboardBodyState extends State<TravelDashboardBody> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.9),
+                  color: Colors.white.withValues(alpha: 0.9),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: const Row(
@@ -376,7 +377,7 @@ class _TravelDashboardBodyState extends State<TravelDashboardBody> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         gradient: LinearGradient(
-          colors: [Colors.black.withOpacity(0.6), Colors.transparent],
+          colors: [Colors.black.withValues(alpha: 0.6), Colors.transparent],
           begin: Alignment.bottomCenter,
           end: Alignment.topCenter,
         ),
@@ -495,7 +496,7 @@ class _TravelDashboardBodyState extends State<TravelDashboardBody> {
         'avatar': 'https://i.pravatar.cc/150?img=2',
         'image': 'https://images.unsplash.com/photo-1513407030348-c983a97b98d8?auto=format&fit=crop&w=600&q=60',
         'likes': 892,
-        'caption': 'Lost in the vibrant streets of Tokyo! 🏮 #Japan #Tokyo',
+        'caption': 'Lost in the vibrant streets of Tokyo! Ã°Å¸ÂÂ® #Japan #Tokyo',
       },
     ];
 
@@ -529,7 +530,7 @@ class _TravelDashboardBodyState extends State<TravelDashboardBody> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       margin: const EdgeInsets.only(bottom: 20),
       elevation: 4,
-      shadowColor: Colors.black.withOpacity(0.2),
+      shadowColor: Colors.black.withValues(alpha: 0.2),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -691,7 +692,7 @@ Widget _buildSocialFeed() {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       margin: const EdgeInsets.only(bottom: 20),
       elevation: 4,
-      shadowColor: Colors.black.withOpacity(0.2),
+      shadowColor: Colors.black.withValues(alpha: 0.2),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -781,7 +782,7 @@ Widget _buildSocialFeed() {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  '📍 $location',
+                  'Ã°Å¸â€œÂ $location',
                   style: const TextStyle(color: Colors.grey),
                 ),
               ],

@@ -506,13 +506,13 @@ class _TravelPackagesScreenState extends State<TravelPackagesScreen> {
                         ),
                         const Spacer(),
                         ElevatedButton(
-                          onPressed: () => _launchUrl(package.link), 
-                          child: const Text('View Package'),
+                          onPressed: () => _launchUrl(package.link),
                           style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.brown.shade700,
                               foregroundColor: Colors.white,
                               shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10))),
+                                  borderRadius: BorderRadius.circular(10))), 
+                          child: const Text('View Package'),
                         )
                       ],
                     )

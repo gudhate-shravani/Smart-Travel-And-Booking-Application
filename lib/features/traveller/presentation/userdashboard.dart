@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:travelapplication/features/guide/presentation/home_screen.dart' as guide;
 import 'package:travelapplication/features/traveller/presentation/drawer.dart';

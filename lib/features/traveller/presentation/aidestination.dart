@@ -1,3 +1,5 @@
+﻿
+// ignore_for_file: deprecated_member_use, constant_identifier_names
 
 import 'dart:convert';
 import 'package:flutter/material.dart';
@@ -6,7 +8,7 @@ import 'package:animations/animations.dart';
 import 'package:http/http.dart' as http;
 import 'package:geolocator/geolocator.dart';
 
-const String GEMINI_API_KEY = "Gemini API key — replace with your own from Google AI Studio";
+const String GEMINI_API_KEY = "Gemini API key Ã¢â‚¬â€ replace with your own from Google AI Studio";
 const String UNSPLASH_ACCESS_KEY = "Unsplash API Key ";
 class Destination {
   final String name;
@@ -80,7 +82,7 @@ Future<Position?> _determinePosition() async {
   try {
     return await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
   } catch (e) {
-    print("Error getting location: $e");
+    debugPrint("Error getting location: $e");
     return null;
   }
 }
@@ -106,11 +108,11 @@ Future<List<String>> fetchUnsplashImages(String query, {int perPage = 6}) async 
       }
       return urls;
     } else {
-      print('Unsplash API error: ${response.statusCode} ${response.body}');
+      debugPrint('Unsplash API error: ${response.statusCode} ${response.body}');
       return [];
     }
   } catch (e) {
-    print('Error fetching Unsplash images: $e');
+    debugPrint('Error fetching Unsplash images: $e');
     return [];
   }
 }
@@ -129,10 +131,10 @@ Future<List<Destination>> generateAiRecommendation(
     if (position != null) {
       locationHint =
           'User is currently near latitude ${position.latitude.toStringAsFixed(2)}, longitude ${position.longitude.toStringAsFixed(2)}. '
-          'This location is the trip’s starting point.';
+          'This location is the tripÃ¢â‚¬â„¢s starting point.';
       locationDetails =
           'Suggest real destinations reachable from here within their selected duration. '
-          'Example: Weekend → within 100 km, 3–5 days → within 300 km, 1+ week → up to 1500 km. '
+          'Example: Weekend Ã¢â€ â€™ within 100 km, 3Ã¢â‚¬â€œ5 days Ã¢â€ â€™ within 300 km, 1+ week Ã¢â€ â€™ up to 1500 km. '
           'Use nearby cities, beaches, or natural escapes accessible by car, train, or short flight. or you can sugest any place like temple waterfall fort or any small place but suitable accordin to user preferences';
     } else {
       locationHint =
@@ -149,7 +151,7 @@ Generate **5 realistic and reachable travel destinations** that fit the user's p
 $locationHint
 $locationDetails
 
-🧭 User Preferences:
+Ã°Å¸Â§Â­ User Preferences:
 - Companions: ${answers['travelers']}
 - Duration: ${answers['duration']}
 - Budget: ${answers['budget']}
@@ -159,12 +161,12 @@ $locationDetails
 Rules:
 according to user mood suggest the places if user mood is adventure suggest mountain trekking places if relaxation suggest beach places if nature suggest forest waterfall places if city life suggest urban metro city if romantic suggest couple friendly places if cultural suggest heritage places
 1. Recommend *real-world places* suitable for the given trip duration (short = nearby, long = far).
-2. Provide diversity — beaches, mountains, heritage, or urban experiences matching the mood or any place.
+2. Provide diversity Ã¢â‚¬â€ beaches, mountains, heritage, or urban experiences matching the mood or any place.
 3. Each destination must have:
    - name
    - location (City, Country)
    - short description (< 20 words)
-   - rating (4.0 – 5.0 realistic)
+   - rating (4.0 Ã¢â‚¬â€œ 5.0 realistic)
 4. Output a **valid JSON array only**. No text outside JSON.
 ''';
 
@@ -232,11 +234,11 @@ according to user mood suggest the places if user mood is adventure suggest moun
 
       return enriched;
     } else {
-      print('Gemini API error: ${response.body}');
+      debugPrint('Gemini API error: ${response.body}');
       throw Exception('Gemini API error');
     }
   } catch (e) {
-    print('Error: $e');
+    debugPrint('Error: $e');
     return [
       Destination(
         name: "Fallback Beach",
@@ -343,7 +345,7 @@ class StartJourneyScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 30),
-              const Text('5 Questions • 2 Minutes • AI-Powered',
+              const Text('5 Questions Ã¢â‚¬Â¢ 2 Minutes Ã¢â‚¬Â¢ AI-Powered',
                   style: TextStyle(fontSize: 14, color: Colors.grey)),
             ],
           ),
@@ -412,7 +414,7 @@ class _QuizScreenState extends State<QuizScreen> {
       'question': 'How long is your trip?',
       'options': [
         QuizAnswer('weekend', 'Weekend', Icons.flash_on),
-        QuizAnswer('3-5days', '3–5 Days', Icons.calendar_today),
+        QuizAnswer('3-5days', '3Ã¢â‚¬â€œ5 Days', Icons.calendar_today),
         QuizAnswer('1week', '1 Week', Icons.calendar_view_week),
         QuizAnswer('2+weeks', '2+ Weeks', Icons.public),
       ],
@@ -617,7 +619,7 @@ class _QuizScreenState extends State<QuizScreen> {
                             borderRadius: BorderRadius.circular(25),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.grey.withOpacity(0.1),
+                                color: Colors.grey.withValues(alpha: 0.1),
                                 spreadRadius: 5,
                                 blurRadius: 7,
                                 offset: const Offset(0, 3),
@@ -649,7 +651,7 @@ class _QuizScreenState extends State<QuizScreen> {
                                         _handleAnswer(questionKey, option.key),
                                   ),
                                 );
-                              }).toList(),
+                              }),
                             ],
                           ),
                         ),
@@ -663,7 +665,7 @@ class _QuizScreenState extends State<QuizScreen> {
           ),
           if (_isLoading)
             Container(
-              color: Colors.white.withOpacity(0.95),
+              color: Colors.white.withValues(alpha: 0.95),
               child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -726,7 +728,7 @@ class QuizOptionTile extends StatelessWidget {
           boxShadow: isSelected
               ? [
                   BoxShadow(
-                    color: const Color(0xFF00C6FF).withOpacity(0.2),
+                    color: const Color(0xFF00C6FF).withValues(alpha: 0.2),
                     blurRadius: 5,
                     offset: const Offset(0, 2),
                   ),
@@ -791,7 +793,7 @@ class ResultsScreen extends StatelessWidget {
             ...recommendations
                 .map((destination) =>
                     DestinationCard(destination: destination))
-                .toList(),
+                ,
             const SizedBox(height: 30),
             Center(
               child: TextButton.icon(
@@ -827,7 +829,7 @@ class DestinationCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
+            color: Colors.grey.withValues(alpha: 0.1),
             spreadRadius: 3,
             blurRadius: 5,
             offset: const Offset(0, 3),

@@ -1,13 +1,12 @@
 // lib/translator_screen.dart
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'translator_controller.dart';
 
 class TranslatorScreen extends StatelessWidget {
-  const TranslatorScreen({Key? key}) : super(key: key);
+  const TranslatorScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +52,7 @@ class TranslatorScreen extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 30,
-          backgroundColor: theme.primaryColor.withOpacity(0.1),
+          backgroundColor: theme.primaryColor.withValues(alpha: 0.1),
           child: Icon(
             Icons.translate_rounded,
             color: theme.primaryColor,
@@ -67,7 +66,7 @@ class TranslatorScreen extends StatelessWidget {
         ),
         const SizedBox(height: 4),
         Text(
-          'Voice • Text • Image Translation',
+          'Voice â€¢ Text â€¢ Image Translation',
           style: theme.textTheme.bodyMedium?.copyWith(color: Colors.grey),
         ),
       ],
@@ -228,7 +227,7 @@ class TranslatorScreen extends StatelessWidget {
                     onPressed: c.toggleListening,
                     icon: Icon(c.isListening.value ? Icons.mic_off_rounded : Icons.mic_rounded),
                     style: IconButton.styleFrom(
-                      backgroundColor: c.isListening.value ? theme.primaryColor.withOpacity(0.2) : Colors.grey.shade200,
+                      backgroundColor: c.isListening.value ? theme.primaryColor.withValues(alpha: 0.2) : Colors.grey.shade200,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                       padding: const EdgeInsets.all(14),
                     ),

@@ -1,3 +1,5 @@
+﻿// ignore_for_file: deprecated_member_use, use_build_context_synchronously
+
 // rental_tab.dart
 // ignore_for_file: constant_identifier_names, depend_on_referenced_packages
 
@@ -31,17 +33,8 @@ class _RentalTabState extends State<RentalTab> {
 
   bool _loading = true;
 
-  /// vehicles: each item: {
-  ///   'driverEmail': driverDocId,
-  ///   'vehicleRef': DocumentReference,
-  ///   'vehicleName': vehicleDocId,
-  ///   'data': Map<String,dynamic>
-  /// }
   List<Map<String, dynamic>> _vehicles = [];
 
-  /// user requests keyed by vehicleRef.path -> entry {
-  ///   'vehicleRef', 'requestRef', 'driverEmail', 'vehicleName', 'data'
-  /// }
   final Map<String, Map<String, dynamic>> _userRequests = {};
 
   final List<StreamSubscription> _requestSubs = [];
@@ -352,7 +345,7 @@ class _RentalTabState extends State<RentalTab> {
   String _vehicleSubtitle(Map<String, dynamic> vdata) {
     final vtype = (vdata['vehicleType'] ?? vdata['type'] ?? '').toString();
     final number = (vdata['vehicleNumber'] ?? vdata['number'] ?? '').toString();
-    return '$vtype ${number.isNotEmpty ? "• $number" : ""}';
+    return '$vtype ${number.isNotEmpty ? "â€¢ $number" : ""}';
   }
 
   @override
@@ -411,12 +404,12 @@ class _RentalTabState extends State<RentalTab> {
                                     Column(
                                       crossAxisAlignment: CrossAxisAlignment.end,
                                       children: [
-                                        Text('₹${vdata['rentPerDay'] ?? vdata['rentDay'] ?? '—'}/day', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
+                                        Text('â‚¹${vdata['rentPerDay'] ?? vdata['rentDay'] ?? 'â€”'}/day', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
                                         const SizedBox(height: 12),
                                         ElevatedButton(
                                           onPressed: () => _openRentalBottomSheet(v),
-                                          child: const Text('Take it on Rent'),
                                           style: ElevatedButton.styleFrom(minimumSize: const Size(120, 40), backgroundColor: const Color.fromARGB(255, 118, 123, 207)),
+                                          child: const Text('Take it on Rent'),
                                         ),
                                       ],
                                     )
@@ -426,14 +419,14 @@ class _RentalTabState extends State<RentalTab> {
                                 if ((vdata['features'] as List<dynamic>?)?.isNotEmpty ?? false)
                                   Wrap(
                                     spacing: 8,
-                                    children: List<Widget>.from(((vdata['features'] as List<dynamic>) ?? []).map((f) => Chip(label: Text(f.toString())))),
+                                    children: List<Widget>.from(((vdata['features'] as List<dynamic>)).map((f) => Chip(label: Text(f.toString())))),
                                   ),
                               ],
                             ),
                           ),
                         );
                       },
-                      separatorBuilder: (_, __) => const SizedBox(height: 12),
+                      separatorBuilder: (_, _) => const SizedBox(height: 12),
                       itemCount: _vehicles.length,
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
@@ -465,8 +458,8 @@ class _RentalTabState extends State<RentalTab> {
                                 Chip(label: Text(status.toUpperCase())),
                               ]),
                               const SizedBox(height: 6),
-                              Text('From: ${data['pickup'] ?? '—'}'),
-                              Text('To: ${data['destination'] ?? data['vehicleName'] ?? '—'}'),
+                              Text('From: ${data['pickup'] ?? 'â€”'}'),
+                              Text('To: ${data['destination'] ?? data['vehicleName'] ?? 'â€”'}'),
                               const SizedBox(height: 8),
                               if (status == 'accepted' && otp.isNotEmpty)
                                 Container(
@@ -478,17 +471,17 @@ class _RentalTabState extends State<RentalTab> {
                               Row(children: [
                                 ElevatedButton(
                                   onPressed: () => _viewDriverLocation(driverEmail),
-                                  child: const Text('View Location'),
                                   style: ElevatedButton.styleFrom(minimumSize: const Size(120, 40)),
+                                  child: const Text('View Location'),
                                 ),
                                 const SizedBox(width: 12),
                                 ElevatedButton(
                                   onPressed: status == 'accepted' ? () => _payNowForRequest(entry) : null,
-                                  child: Text(status == 'completed' ? 'Paid' : 'Pay Now'),
                                   style: ElevatedButton.styleFrom(minimumSize: const Size(120, 40), backgroundColor: const Color.fromARGB(255, 170, 224, 243)),
+                                  child: Text(status == 'completed' ? 'Paid' : 'Pay Now'),
                                 ),
                                 const Spacer(),
-                                Text('₹${data['amount'] ?? '—'}', style: const TextStyle(fontWeight: FontWeight.bold)),
+                                Text('â‚¹${data['amount'] ?? 'â€”'}', style: const TextStyle(fontWeight: FontWeight.bold)),
                               ]),
                               const SizedBox(height: 8),
                               // small action row for debug / cancel
@@ -519,7 +512,7 @@ class _RentalTabState extends State<RentalTab> {
                           ),
                         );
                       },
-                      separatorBuilder: (_, __) => const SizedBox(height: 12),
+                      separatorBuilder: (_, _) => const SizedBox(height: 12),
                       itemCount: _userRequests.length,
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),

@@ -1,4 +1,6 @@
+﻿
 
+// ignore_for_file: camel_case_types
 
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -28,7 +30,7 @@ class _homePageState extends State<HomePage> {
     try {
       final user = _auth.currentUser;
       if (user == null) {
-        print("⚠️ No user logged in");
+        debugPrint("Ã¢Å¡Â Ã¯Â¸Â No user logged in");
         setState(() => _isLoading = false);
         return;
       }
@@ -41,13 +43,13 @@ class _homePageState extends State<HomePage> {
         setState(() {
           driverName = data['fullName'] ?? 'Driver';
         });
-        print("✅ Fetched driver name: ${data['fullName']}");
+        debugPrint("Ã¢Å“â€¦ Fetched driver name: ${data['fullName']}");
       } else {
-        print("❌ No document found for ${user.email}");
+        debugPrint("Ã¢ÂÅ’ No document found for ${user.email}");
         setState(() => driverName = 'Driver');
       }
     } catch (e) {
-      print("❌ Error fetching name: $e");
+      debugPrint("Ã¢ÂÅ’ Error fetching name: $e");
       setState(() => driverName = 'Driver');
     }
 
@@ -121,7 +123,7 @@ class _homePageState extends State<HomePage> {
               children: [
                 buildStatCard("Total Trips", "3", Icons.show_chart, Colors.blue),
                 buildStatCard("Active Rentals", "1", Icons.directions_car, Colors.green),
-                buildStatCard("This Month", "₹500", Icons.currency_rupee, Colors.purple),
+                buildStatCard("This Month", "Ã¢â€šÂ¹500", Icons.currency_rupee, Colors.purple),
                 buildStatCard("Pending Requests", "1", Icons.access_time, Colors.orange),
               ],
             ),
@@ -146,7 +148,7 @@ class _homePageState extends State<HomePage> {
                       child: Container(
                         padding: const EdgeInsets.symmetric(vertical: 8),
                         decoration: BoxDecoration(
-                          color: isRideSelected ? Colors.blue.withOpacity(0.1) : Colors.transparent,
+                          color: isRideSelected ? Colors.blue.withValues(alpha: 0.1) : Colors.transparent,
                           borderRadius: BorderRadius.circular(30),
                         ),
                         alignment: Alignment.center,
@@ -168,7 +170,7 @@ class _homePageState extends State<HomePage> {
                       child: Container(
                         padding: const EdgeInsets.symmetric(vertical: 8),
                         decoration: BoxDecoration(
-                          color: !isRideSelected ? Colors.blue.withOpacity(0.1) : Colors.transparent,
+                          color: !isRideSelected ? Colors.blue.withValues(alpha: 0.1) : Colors.transparent,
                           borderRadius: BorderRadius.circular(30),
                         ),
                         alignment: Alignment.center,
@@ -318,7 +320,7 @@ class _homePageState extends State<HomePage> {
                                           Container(
                                             padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                                             decoration: BoxDecoration(
-                                                color: Colors.green.withOpacity(0.2),
+                                                color: Colors.green.withValues(alpha: 0.2),
                                                 borderRadius: BorderRadius.circular(8)),
                                             child: const Text("New",
                                                 style: TextStyle(
@@ -446,7 +448,7 @@ class _homePageState extends State<HomePage> {
                                           Container(
                                             padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                                             decoration: BoxDecoration(
-                                                color: Colors.green.withOpacity(0.2),
+                                                color: Colors.green.withValues(alpha: 0.2),
                                                 borderRadius: BorderRadius.circular(8)),
                                             child: const Text("New",
                                                 style: TextStyle(
@@ -543,7 +545,7 @@ class _homePageState extends State<HomePage> {
                           ),
                         );
                       }
-                    }).toList(),
+                    }),
                   ],
                 );
               },
@@ -565,7 +567,7 @@ class _homePageState extends State<HomePage> {
         children: [
           CircleAvatar(
             radius: 18,
-            backgroundColor: color.withOpacity(0.15),
+            backgroundColor: color.withValues(alpha: 0.15),
             child: Icon(icon, color: color),
           ),
           const SizedBox(width: 8),

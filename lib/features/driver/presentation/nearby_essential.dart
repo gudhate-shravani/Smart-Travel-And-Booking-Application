@@ -1,3 +1,5 @@
+﻿// ignore_for_file: deprecated_member_use, use_build_context_synchronously
+
 
 
 import 'package:flutter/material.dart';
@@ -47,7 +49,7 @@ class _NearbyEssentialsScreenState extends State<NearbyEssentialsScreen> {
   final TextEditingController _searchController = TextEditingController();
   bool _isLoading = false;
 
-  // 🛑 IMPORTANT: REPLACE THIS WITH YOUR ACTUAL GOOGLE PLACES API KEY
+  // ðŸ›‘ IMPORTANT: REPLACE THIS WITH YOUR ACTUAL GOOGLE PLACES API KEY
   final String _googlePlacesApiKey = ' REPLACE THIS WITH YOUR ACTUAL GOOGLE PLACES API KEY'; 
 
   @override
@@ -519,7 +521,7 @@ class _NearbyEssentialsScreenState extends State<NearbyEssentialsScreen> {
                             if (_currentAddress == 'Fetching location...')
                               const Text('\nEnsure location permissions are granted.', style: TextStyle(color: Colors.redAccent))
                             else if (_googlePlacesApiKey == 'YOUR_GOOGLE_PLACES_API_KEY')
-                                const Text('\n🛑 API KEY MISSING! Replace placeholder for results.', style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold))
+                                const Text('\nðŸ›‘ API KEY MISSING! Replace placeholder for results.', style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold))
 
                           ],
                         ),

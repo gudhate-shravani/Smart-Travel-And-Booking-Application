@@ -1,3 +1,5 @@
+﻿// ignore_for_file: body_might_complete_normally_catch_error, constant_identifier_names, deprecated_member_use, use_build_context_synchronously
+
 
 
 
@@ -34,16 +36,15 @@ class _LocationScreenState extends State<LocationScreen> {
   ];
 
   // map controllers & state
-  Completer<GoogleMapController> _mapController = Completer();
-  CameraPosition _initialCamera = const CameraPosition(target: LatLng(28.6315, 77.2167), zoom: 12); // Delhi default
+  final Completer<GoogleMapController> _mapController = Completer();
+  final CameraPosition _initialCamera = const CameraPosition(target: LatLng(28.6315, 77.2167), zoom: 12); // Delhi default
   LatLng? _currentLatLng;
   Marker? _searchedMarker;
   LatLng? _searchedLatLng;
-  Set<Marker> _nearbyMarkers = {};
-  Set<Polyline> _polylines = {};
+  final Set<Marker> _nearbyMarkers = {};
+  final Set<Polyline> _polylines = {};
   List<LatLng> _polylineCoordinates = [];
   final polylinePoints = PolylinePoints(apiKey: 'AIzaSyC-d7WK6cZDT0RIbWhnwGjRLkrKPR3IPCY');
-  late PolylinePoints _polylinePoints;
 
 
   bool _mapCardHasPlace = false;
@@ -79,10 +80,8 @@ class _LocationScreenState extends State<LocationScreen> {
     _currentLatLng = LatLng(pos.latitude, pos.longitude);
     final controller = await _mapController.future.catchError((_) {});
     setState(() {});
-    if (controller != null) {
-      controller.animateCamera(CameraUpdate.newLatLngZoom(_currentLatLng!, 14));
+    controller.animateCamera(CameraUpdate.newLatLngZoom(_currentLatLng!, 14));
     }
-  }
 
   Future<void> _onSearchSubmitted(String query) async {
     if (query.trim().isEmpty) return;
@@ -166,7 +165,7 @@ class _LocationScreenState extends State<LocationScreen> {
 
     final String encodedPolyline = data['routes'][0]['overview_polyline']['points'] as String;
 
-    // ✅ Use static method instead of instance method
+    // Ã¢Å“â€¦ Use static method instead of instance method
     final List<PointLatLng> result = PolylinePoints.decodePolyline(encodedPolyline);
 
     if (result.isEmpty) {
@@ -292,7 +291,7 @@ class _LocationScreenState extends State<LocationScreen> {
       children: [
         CircleAvatar(
           radius: 30,
-          backgroundColor: Colors.blue.withOpacity(0.1),
+          backgroundColor: Colors.blue.withValues(alpha: 0.1),
           child: const Icon(Icons.location_on_outlined, color: Colors.blue, size: 30),
         ),
         const SizedBox(height: 12),
@@ -436,7 +435,7 @@ class _LocationScreenState extends State<LocationScreen> {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        gradient: LinearGradient(colors: [Colors.blue.withOpacity(0.1), Colors.blue.withOpacity(0.2)], begin: Alignment.topLeft, end: Alignment.bottomRight),
+        gradient: LinearGradient(colors: [Colors.blue.withValues(alpha: 0.1), Colors.blue.withValues(alpha: 0.2)], begin: Alignment.topLeft, end: Alignment.bottomRight),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Row(
@@ -448,13 +447,12 @@ class _LocationScreenState extends State<LocationScreen> {
               const Text('Current Location', style: TextStyle(fontWeight: FontWeight.bold)),
               Text(_currentLatLng != null ? '${_currentLatLng!.latitude.toStringAsFixed(5)}, ${_currentLatLng!.longitude.toStringAsFixed(5)}' : 'Determining location...', style: const TextStyle(color: Colors.black54)),
               const SizedBox(height: 4),
-              const Text('Accuracy: ±5 meters', style: TextStyle(color: Colors.black54, fontSize: 12)),
+              const Text('Accuracy: Ã‚Â±5 meters', style: TextStyle(color: Colors.black54, fontSize: 12)),
             ]),
           ),
           OutlinedButton.icon(onPressed: () async {
             // share: simple clipboard for now
             if (_currentLatLng != null) {
-              final text = 'https://www.google.com/maps/search/?api=1&query=${_currentLatLng!.latitude},${_currentLatLng!.longitude}';
               // copy to clipboard or share - minimal approach:
               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Location link ready (copy/share outside)')));
             }
@@ -505,7 +503,7 @@ class _LocationScreenState extends State<LocationScreen> {
               Text(address, style: const TextStyle(color: Colors.black54, fontSize: 12)),
               const SizedBox(height: 8),
               Row(children: [
-                Text('$dist • $time • ', style: const TextStyle(color: Colors.black54, fontSize: 12)),
+                Text('$dist Ã¢â‚¬Â¢ $time Ã¢â‚¬Â¢ ', style: const TextStyle(color: Colors.black54, fontSize: 12)),
                 const Icon(Icons.star, color: Colors.amber, size: 14),
                 Text(' $rating', style: const TextStyle(color: Colors.black54, fontSize: 12)),
               ]),
@@ -546,7 +544,7 @@ class _LocationScreenState extends State<LocationScreen> {
               Text(addr, style: const TextStyle(color: Colors.black54, fontSize: 12)),
               const SizedBox(height: 8),
               Row(children: [
-                Text('${(Geolocator.distanceBetween(_currentLatLng?.latitude ?? 0, _currentLatLng?.longitude ?? 0, lat, lng) / 1000).toStringAsFixed(1)} km • approx', style: const TextStyle(color: Colors.black54, fontSize: 12)),
+                Text('${(Geolocator.distanceBetween(_currentLatLng?.latitude ?? 0, _currentLatLng?.longitude ?? 0, lat, lng) / 1000).toStringAsFixed(1)} km Ã¢â‚¬Â¢ approx', style: const TextStyle(color: Colors.black54, fontSize: 12)),
               ]),
             ]),
           ),
@@ -645,7 +643,7 @@ class RouteMapScreen extends StatefulWidget {
 }
 
 class _RouteMapScreenState extends State<RouteMapScreen> {
-  Completer<GoogleMapController> _controller = Completer();
+  final Completer<GoogleMapController> _controller = Completer();
   late CameraPosition _camera;
   Set<Polyline> _polylines = {};
   Set<Marker> _markers = {};

@@ -4,12 +4,13 @@
 // full BookRideScreen.dart (single file)
 // Paste/replace your existing file with this content.
 
+// ignore_for_file: deprecated_member_use, library_private_types_in_public_api, constant_identifier_names
+
 import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -149,39 +150,9 @@ class _BookRideScreenState extends State<BookRideScreen> {
   List<RideOption> _availableVehicles = [];
 
   // Rental vehicles (unchanged)
-  final List<RentalVehicle> _rentalVehicles = [
-    RentalVehicle(
-      name: 'Toyota Camry',
-      type: 'Sedan • Automatic',
-      rating: 4.8,
-      capacity: 5,
-      pricePerDay: 45,
-      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_bj2l5uaY5JZNZZEHwwaMrsooDX75vN1vSQ&s',
-      features: ['AC', 'GPS', 'Bluetooth', '4 doors'],
-    ),
-    RentalVehicle(
-      name: 'Honda CR-V',
-      type: 'SUV • Automatic',
-      rating: 4.9,
-      capacity: 7,
-      pricePerDay: 65,
-      imageUrl: 'https://placehold.co/100x100/4CAF50/FFFFFF?text=CRV',
-      features: ['AWD', 'AC', 'GPS', 'Spacious', '5 doors'],
-    ),
-    RentalVehicle(
-      name: 'Nissan Versa',
-      type: 'Compact • Manual',
-      rating: 4.7,
-      capacity: 4,
-      pricePerDay: 35,
-      imageUrl: 'https://placehold.co/100x100/2196F3/FFFFFF?text=VER',
-      features: ['Fuel efficient', 'AC', 'Compact', 'Easy parking'],
-    ),
-  ];
 
   // Map/fallback defaults
   late CameraPosition _initialCameraPosition;
-  bool _hasLocationPermission = false;
 
   // NEW: on trip mode flag — when true we render the full-screen trip map
   bool _onTripMode = false;
@@ -233,10 +204,8 @@ class _BookRideScreenState extends State<BookRideScreen> {
       }
       if (perm == LocationPermission.deniedForever || perm == LocationPermission.denied) {
         // can't get permission; keep fallback initial camera
-        setState(() => _hasLocationPermission = false);
         return;
       }
-      setState(() => _hasLocationPermission = true);
 
       final pos = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
       _initialCameraPosition = CameraPosition(target: LatLng(pos.latitude, pos.longitude), zoom: 14.0);
@@ -359,19 +328,6 @@ class _BookRideScreenState extends State<BookRideScreen> {
     });
   }
 
-  void _showRentalModal(RentalVehicle vehicle) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: const Color.fromARGB(0, 255, 252, 252),
-      builder: (context) => DraggableScrollableSheet(
-        initialChildSize: 0.8,
-        maxChildSize: 0.9,
-        minChildSize: 0.5,
-        builder: (_, controller) => _buildRentalForm(vehicle, controller),
-      ),
-    );
-  }
 
   // ------------------ Firestore vehicle fetch & rideRequest listener ------------------
 
@@ -466,9 +422,6 @@ class _BookRideScreenState extends State<BookRideScreen> {
 
       final statusVal = (data['status'] ?? 'no').toString();
       final tripVal = (data['trip'] ?? 'no').toString();
-      final otpVal = (data['otp'] ?? 'no').toString();
-
-      // When accepted -> show driver card and fetch driver-pickup route
       if (statusVal == 'accepted') {
         setState(() {
           _rideState = RideState.driverFound;
@@ -914,38 +867,6 @@ class _BookRideScreenState extends State<BookRideScreen> {
     });
   }
 
-  /// Safely fetch driver lat/lng from `Rental Driver/{driverEmail}` where
-  /// lat/lng may be stored as numbers or strings. Returns null if not found.
-  Future<LatLng?> _fetchDriverLatLngFromParent(String driverEmail) async {
-    try {
-      final docSnap = await FirebaseFirestore.instance.collection('Rental Driver').doc(driverEmail).get();
-
-      if (!docSnap.exists) return null;
-      final data = docSnap.data()!;
-      // Try common field names
-      final rawLat = data['latitude'] ?? data['lat'] ?? data['location']?['latitude'];
-      final rawLng = data['longitude'] ?? data['lng'] ?? data['location']?['longitude'];
-
-      // Convert to double safely
-      double? lat;
-      double? lng;
-
-      if (rawLat != null) {
-        if (rawLat is num) lat = rawLat.toDouble();
-        else lat = double.tryParse(rawLat.toString());
-      }
-      if (rawLng != null) {
-        if (rawLng is num) lng = rawLng.toDouble();
-        else lng = double.tryParse(rawLng.toString());
-      }
-
-      if (lat == null || lng == null) return null;
-      return LatLng(lat, lng);
-    } catch (e) {
-      debugPrint('Error fetching driver lat/lng: $e');
-      return null;
-    }
-  }
 
   Future<void> _updateDriverMarker(LatLng pos) async {
     final marker = Marker(
@@ -1327,13 +1248,13 @@ class _BookRideScreenState extends State<BookRideScreen> {
                     // sample amount; you can compute actual based on distance or ride pricing
                     _openRazorpayCheckout(amountINR: 100);
                   },
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 14.0),
-                    child: Text('Pay Now', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)),
-                  ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 149, 196, 235),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  ),
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 14.0),
+                    child: Text('Pay Now', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)),
                   ),
                 ),
               ),
@@ -1386,21 +1307,6 @@ class _BookRideScreenState extends State<BookRideScreen> {
     );
   }
 
-  AppBar _buildAppBar() {
-    return AppBar(
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      leading: const Icon(Icons.menu),
-      title: const Text('Book Your Ride', style: TextStyle(fontWeight: FontWeight.bold)),
-      centerTitle: true,
-      actions: const [
-        Icon(Icons.notifications_none),
-        SizedBox(width: 16),
-        Icon(Icons.person_outline),
-        SizedBox(width: 16),
-      ],
-    );
-  }
 
   Widget _buildMainTabs() {
     return Container(
@@ -1570,11 +1476,11 @@ class _BookRideScreenState extends State<BookRideScreen> {
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: _searchRides,
-              child: const Text('Search Rides'),
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(double.infinity, 50),
                 backgroundColor: const Color.fromARGB(255, 165, 207, 239),
               ),
+              child: const Text('Search Rides'),
             ),
           ],
         ),
@@ -1600,8 +1506,8 @@ class _BookRideScreenState extends State<BookRideScreen> {
                 const SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: _confirmPickup,
-                  child: const Text('Confirm Pickup'),
                   style: ElevatedButton.styleFrom(minimumSize: const Size(double.infinity, 50), backgroundColor: const Color.fromARGB(255, 170, 224, 243)),
+                  child: const Text('Confirm Pickup'),
                 ),
               ],
             ),
@@ -1699,8 +1605,8 @@ class _BookRideScreenState extends State<BookRideScreen> {
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: onSelect ?? () => _selectRide(ride),
-              child: const Text('Select'),
               style: ElevatedButton.styleFrom(minimumSize: const Size(double.infinity, 50), backgroundColor: const Color.fromARGB(255, 149, 196, 235)),
+              child: const Text('Select'),
             ),
           ],
         ),
@@ -1736,8 +1642,8 @@ class _BookRideScreenState extends State<BookRideScreen> {
                       setState(() => _rideState = RideState.findingDriver);
                     }
                   },
-                  child: const Text('Book Now'),
                   style: ElevatedButton.styleFrom(minimumSize: const Size(double.infinity, 50), backgroundColor: const Color.fromARGB(255, 188, 223, 244)),
+                  child: const Text('Book Now'),
                 ),
                 const SizedBox(height: 16),
                 Container(
@@ -2048,8 +1954,8 @@ myLocationButtonEnabled: true,
             ],
             OutlinedButton(
               onPressed: _cancelRide,
-              child: const Text('Cancel Ride'),
               style: OutlinedButton.styleFrom(minimumSize: const Size(double.infinity, 50), foregroundColor: Colors.white, side: const BorderSide(color: Colors.grey), backgroundColor: const Color.fromARGB(255, 172, 215, 254)),
+              child: const Text('Cancel Ride'),
             )
           ],
         ),
@@ -2057,72 +1963,6 @@ myLocationButtonEnabled: true,
     );
   }
 
-  Widget _buildRentalBookingBody() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Text('Available Rental Vehicles', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-            Text('${_rentalVehicles.length} vehicles available', style: const TextStyle(color: Colors.grey, fontSize: 12)),
-          ],
-        ),
-        const SizedBox(height: 16),
-        ListView.separated(
-          itemCount: _rentalVehicles.length,
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          separatorBuilder: (c, i) => const SizedBox(height: 12),
-          itemBuilder: (context, index) {
-            final vehicle = _rentalVehicles[index];
-            return Card(
-              color: const Color.fromARGB(255, 241, 238, 238),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Image.network(vehicle.imageUrl, width: 80, height: 80),
-                        const SizedBox(width: 12),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(vehicle.name, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                              Text(vehicle.type, style: TextStyle(color: Colors.grey.shade400, fontSize: 12)),
-                              Row(children: [
-                                const Icon(Icons.star, color: Colors.amber, size: 16),
-                                Text(' ${vehicle.rating}'),
-                                const SizedBox(width: 8),
-                                const Icon(Icons.person, size: 16),
-                                Text(' ${vehicle.capacity}'),
-                              ]),
-                            ],
-                          ),
-                        ),
-                        Text('\$${vehicle.pricePerDay}/day', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                      ],
-                    ),
-                    const SizedBox(height: 8),
-                    Wrap(spacing: 8, children: vehicle.features.map((f) => Chip(label: Text(f), backgroundColor: const Color.fromARGB(255, 249, 248, 248))).toList()),
-                    const SizedBox(height: 16),
-                    ElevatedButton(
-                      onPressed: () => _showRentalModal(vehicle),
-                      child: const Text('Take it on Rent'),
-                      style: ElevatedButton.styleFrom(minimumSize: const Size(double.infinity, 50), backgroundColor: const Color.fromARGB(255, 118, 123, 207)),
-                    ),
-                  ],
-                ),
-              ),
-            );
-          },
-        ),
-      ],
-    );
-  }
 
   Widget _buildLocationHeader() {
     return Card(
@@ -2176,62 +2016,7 @@ myLocationButtonEnabled: true,
     );
   }
 
-  Widget _buildRentalForm(RentalVehicle vehicle, ScrollController controller) {
-    return Container(
-      padding: const EdgeInsets.all(20),
-      decoration: const BoxDecoration(
-        color: Color.fromARGB(255, 243, 239, 239),
-        borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
-      ),
-      child: ListView(
-        controller: controller,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Rent ${vehicle.name}', style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-              IconButton(onPressed: () => Navigator.pop(context), icon: const Icon(Icons.close)),
-            ],
-          ),
-          const SizedBox(height: 20),
-          _buildFormRow('Start Date', 'End Date'),
-          const SizedBox(height: 12),
-          _buildFormRow('Start Time', 'End Time'),
-          const SizedBox(height: 12),
-          const Text('Rental Duration'),
-          const SizedBox(height: 4),
-          DropdownButtonFormField(items: [], onChanged: (val) {}, decoration: const InputDecoration(hintText: 'Select duration')),
-          const SizedBox(height: 12),
-          const Text('Pickup Location'),
-          const SizedBox(height: 4),
-          const TextField(decoration: InputDecoration(hintText: 'Enter pickup address')),
-          const SizedBox(height: 12),
-          const Text('Driver License Number'),
-          const SizedBox(height: 4),
-          const TextField(decoration: InputDecoration(hintText: 'Enter your license number')),
-          const SizedBox(height: 24),
-          Row(
-            children: [
-              Expanded(child: OutlinedButton(onPressed: () => Navigator.pop(context), child: const Text('Cancel'), style: OutlinedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 14)))),
-              const SizedBox(width: 12),
-              Expanded(child: ElevatedButton(onPressed: () {}, child: const Text('Confirm Rental'), style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 14)))),
-            ],
-          )
-        ],
-      ),
-    );
-  }
 
-  Widget _buildFormRow(String label1, String label2) {
-    return Row(
-      children: [
-        Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text(label1), const SizedBox(height: 4), TextField(decoration: InputDecoration(hintText: label1.contains('Date') ? 'dd-mm-yyyy' : '--:--'))])),
-
-        const SizedBox(width: 12),
-        Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text(label2), const SizedBox(height: 4), TextField(decoration: InputDecoration(hintText: label2.contains('Date') ? 'dd-mm-yyyy' : '--:--'))])),
-      ],
-    );
-  }
 
   // ------------------ Razorpay integration ------------------
 

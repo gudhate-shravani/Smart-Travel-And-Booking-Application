@@ -1,3 +1,5 @@
+﻿// ignore_for_file: use_build_context_synchronously
+
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -18,7 +20,7 @@ class _BusStopScreenState extends State<BusStopScreen> {
 
   LatLng? _currentPosition;
   LatLng? _searchedStop;
-  Set<Marker> _markers = {};
+  final Set<Marker> _markers = {};
   List<Map<String, dynamic>> _nearbyStops = [];
 
   @override

@@ -1,4 +1,4 @@
-
+﻿
 
 import 'dart:convert';
 import 'package:flutter/material.dart';
@@ -30,8 +30,8 @@ class _AIScriptGeneratorScreenState extends State<AIScriptGeneratorScreen> {
   // TTS
   final FlutterTts flutterTts = FlutterTts();
 
-  // Gemini API key — replace with your own from Google AI Studio
-  static const String geminiApiKey = 'Gemini API key — replace with your own from Google AI Studio';
+  // Gemini API key â€” replace with your own from Google AI Studio
+  static const String geminiApiKey = 'Gemini API key â€” replace with your own from Google AI Studio';
 
   // Gemini Endpoint
  static const String geminiEndpoint =
@@ -192,7 +192,7 @@ Make it suitable for a tourist guide narration.
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.06),
+            color: Colors.grey.withValues(alpha: 0.06),
             blurRadius: 6,
             offset: const Offset(0, 2),
           )
@@ -272,7 +272,7 @@ Make it suitable for a tourist guide narration.
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               color: isSpeaking
-                  ? const Color(0xFF7F67F8).withOpacity(0.12)
+                  ? const Color(0xFF7F67F8).withValues(alpha: 0.12)
                   : Colors.grey.shade50,
               borderRadius: BorderRadius.circular(10),
             ),
@@ -321,7 +321,7 @@ Make it suitable for a tourist guide narration.
                 borderRadius: BorderRadius.circular(16),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.grey.withOpacity(0.08),
+                    color: Colors.grey.withValues(alpha: 0.08),
                     blurRadius: 8,
                     offset: const Offset(0, 3),
                   ),
@@ -360,7 +360,7 @@ Make it suitable for a tourist guide narration.
                         },
                         backgroundColor: Colors.grey.shade100,
                         selectedColor:
-                            const Color(0xFF7F67F8).withOpacity(0.2),
+                            const Color(0xFF7F67F8).withValues(alpha: 0.2),
                         labelStyle: TextStyle(
                           color: isSelected
                               ? const Color(0xFF7F67F8)
@@ -392,7 +392,7 @@ Make it suitable for a tourist guide narration.
                 borderRadius: BorderRadius.circular(16),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.grey.withOpacity(0.08),
+                    color: Colors.grey.withValues(alpha: 0.08),
                     blurRadius: 8,
                     offset: const Offset(0, 3),
                   ),
@@ -473,7 +473,7 @@ Make it suitable for a tourist guide narration.
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey.withOpacity(0.06),
+                      color: Colors.grey.withValues(alpha: 0.06),
                       blurRadius: 8,
                       offset: const Offset(0, 3),
                     ),

@@ -7,16 +7,6 @@ import 'package:travelapplication/features/driver/presentation/home_page.dart';
 import 'package:travelapplication/features/driver/presentation/payment.dart';
 import 'package:travelapplication/features/driver/presentation/request_page.dart';
 import 'package:travelapplication/features/guide/presentation/messages_screen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-
-
-final FirebaseAuth _auth = FirebaseAuth.instance;
-final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-
-String? driverName;
-bool _isLoading = true;
-
 
 
 
@@ -25,10 +15,10 @@ class DriverDashboard extends StatefulWidget {
   const DriverDashboard({super.key});
 
   @override
-  _DriverDashboardState createState() => _DriverDashboardState();
+  DriverDashboardState createState() => DriverDashboardState();
 }
 
-class _DriverDashboardState extends State<DriverDashboard> {
+class DriverDashboardState extends State<DriverDashboard> {
 
   
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();

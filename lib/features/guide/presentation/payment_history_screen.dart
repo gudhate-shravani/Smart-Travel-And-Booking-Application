@@ -14,7 +14,7 @@ class _PaymentHistoryScreenState extends State<PaymentHistoryScreen> {
   final List<Map<String, dynamic>> payments = [
     {
       "tour": "Taj Mahal Sunrise Tour",
-      "price": "₹4,500",
+      "price": "â‚¹4,500",
       "date": "Oct 1, 2025",
       "guide": "Sarah Johnson",
       "status": "Completed",
@@ -23,7 +23,7 @@ class _PaymentHistoryScreenState extends State<PaymentHistoryScreen> {
     },
     {
       "tour": "Jaipur Pink City Heritage",
-      "price": "₹6,800",
+      "price": "â‚¹6,800",
       "date": "Sep 28, 2025",
       "guide": "Michael Chen",
       "status": "Completed",
@@ -32,7 +32,7 @@ class _PaymentHistoryScreenState extends State<PaymentHistoryScreen> {
     },
     {
       "tour": "Delhi Heritage Walk",
-      "price": "₹3,200",
+      "price": "â‚¹3,200",
       "date": "Sep 25, 2025",
       "guide": "Emma Williams",
       "status": "Pending",
@@ -62,7 +62,7 @@ class _PaymentHistoryScreenState extends State<PaymentHistoryScreen> {
             const SizedBox(height: 16),
             _buildFilterTabs(),
             const SizedBox(height: 10),
-            ...filtered.map((p) => _buildPaymentCard(p)).toList(),
+            ...filtered.map((p) => _buildPaymentCard(p)),
           ],
         ),
       ),
@@ -76,7 +76,7 @@ class _PaymentHistoryScreenState extends State<PaymentHistoryScreen> {
         Expanded(
           child: _summaryCard(
             "Total Earnings",
-            "₹23,300",
+            "â‚¹23,300",
             "This month",
             Iconsax.wallet_1,
             Colors.green.shade100,
@@ -87,7 +87,7 @@ class _PaymentHistoryScreenState extends State<PaymentHistoryScreen> {
         Expanded(
           child: _summaryCard(
             "Pending",
-            "₹3,200",
+            "â‚¹3,200",
             "Processing",
             Iconsax.clock,
             Colors.orange.shade100,
@@ -128,7 +128,7 @@ class _PaymentHistoryScreenState extends State<PaymentHistoryScreen> {
                       fontSize: 16)),
               Text(subtitle,
                   style: TextStyle(
-                      color: iconColor.withOpacity(0.7), fontSize: 12)),
+                      color: iconColor.withValues(alpha: 0.7), fontSize: 12)),
             ],
           ),
         ],
@@ -154,7 +154,7 @@ class _PaymentHistoryScreenState extends State<PaymentHistoryScreen> {
                 borderRadius: BorderRadius.circular(10),
                 boxShadow: [
                   BoxShadow(
-                      color: Colors.black.withOpacity(0.05), blurRadius: 4)
+                      color: Colors.black.withValues(alpha: 0.05), blurRadius: 4)
                 ],
               ),
               alignment: Alignment.center,
@@ -181,7 +181,7 @@ class _PaymentHistoryScreenState extends State<PaymentHistoryScreen> {
         borderRadius: BorderRadius.circular(14),
         boxShadow: [
           BoxShadow(
-              color: Colors.black.withOpacity(0.05),
+              color: Colors.black.withValues(alpha: 0.05),
               blurRadius: 4,
               offset: const Offset(0, 2))
         ],

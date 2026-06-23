@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+﻿import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ChatDetailScreen extends StatefulWidget {
@@ -20,7 +20,7 @@ class ChatDetailScreen extends StatefulWidget {
 class _ChatDetailScreenState extends State<ChatDetailScreen> {
   final TextEditingController _controller = TextEditingController();
 
-  // ✅ Sample conversation
+  // âœ… Sample conversation
   final List<Map<String, dynamic>> messages = [
     {
       "text": "Hi! I'm interested in the Golden Triangle Tour.",
@@ -109,7 +109,7 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
       ),
       body: Column(
         children: [
-          // ✅ Chat messages list
+          // âœ… Chat messages list
           Expanded(
             child: ListView.builder(
               reverse: false,
@@ -170,7 +170,7 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
             ),
           ),
 
-          // ✅ Message input field
+          // âœ… Message input field
           const Divider(height: 1),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
@@ -178,7 +178,7 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
               color: Colors.white,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.05),
+                  color: Colors.black.withValues(alpha: 0.05),
                   blurRadius: 6,
                   offset: const Offset(0, -2),
                 ),

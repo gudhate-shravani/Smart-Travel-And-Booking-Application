@@ -1,4 +1,4 @@
-// lib/widgets/guide_card.dart
+﻿// lib/widgets/guide_card.dart
 /*
 import 'package:flutter/material.dart';
 import 'guide_model.dart';
@@ -90,14 +90,14 @@ import 'guide_model.dart';
 
 class GuideCard extends StatelessWidget {
   final Guide guide;
-  final VoidCallback? onBookNow; // ✅ Added optional callback
-  final bool showStatusInsteadOfButton; // ✅ Added to handle Requested Guides
+  final VoidCallback? onBookNow; // âœ… Added optional callback
+  final bool showStatusInsteadOfButton; // âœ… Added to handle Requested Guides
 
   const GuideCard({
     super.key,
     required this.guide,
-    this.onBookNow, // ✅ new
-    this.showStatusInsteadOfButton = false, // ✅ default false
+    this.onBookNow, // âœ… new
+    this.showStatusInsteadOfButton = false, // âœ… default false
   });
 
   @override
@@ -173,7 +173,7 @@ class GuideCard extends StatelessWidget {
                       fontWeight: FontWeight.bold, fontSize: 16),
                 ),
 
-                // ✅ Conditionally show button or status
+                // âœ… Conditionally show button or status
                 showStatusInsteadOfButton
                     ? Container(
                         padding: const EdgeInsets.symmetric(
@@ -214,7 +214,7 @@ class GuideCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.15),
+        color: color.withValues(alpha: 0.15),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Text(

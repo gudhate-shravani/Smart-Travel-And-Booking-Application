@@ -9,25 +9,17 @@ class PackingCategoryCard extends StatefulWidget {
   final VoidCallback onCheckToggled; // Change type to VoidCallback
 
   const PackingCategoryCard({
-    Key? key,
+    super.key,
     required this.category,
     required this.onCheckToggled, // Update parameter name
-  }) : super(key: key);
+  });
 
   @override
   State<PackingCategoryCard> createState() => _PackingCategoryCardState();
 }
 
 class _PackingCategoryCardState extends State<PackingCategoryCard> {
-  // REMOVE THE _calculateCompletion METHOD.
-  // The overall calculation is now handled solely in the parent when the callback is triggered.
 
-  @override
-  // REMOVE initState() - Initial state calculation should not trigger setState on the parent.
-  // void initState() {
-  //   super.initState();
-  //   _calculateCompletion(); // <-- THIS IS THE PRIMARY ERROR-CAUSING LINE
-  // }
 
   void _toggleItem(PackingItem item) {
     setState(() {
@@ -93,7 +85,7 @@ class _PackingCategoryCardState extends State<PackingCategoryCard> {
                   _toggleItem(item); // Use the new toggle method
                 },
               );
-            }).toList(),
+            }),
           ],
         ),
       ),

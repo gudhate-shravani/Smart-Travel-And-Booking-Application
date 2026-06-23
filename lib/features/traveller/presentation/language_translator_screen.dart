@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
 class LanguageTranslatorScreen extends StatefulWidget {
@@ -17,15 +17,15 @@ class _LanguageTranslatorScreenState extends State<LanguageTranslatorScreen> {
   final List<Map<String, String>> commonPhrases = [
     {
       "en": "Welcome! How can I help you?",
-      "hi": "स्वागत है! मैं आपकी कैसे मदद कर सकता हूं?"
+      "hi": "à¤¸à¥à¤µà¤¾à¤—à¤¤ à¤¹à¥ˆ! à¤®à¥ˆà¤‚ à¤†à¤ªà¤•à¥€ à¤•à¥ˆà¤¸à¥‡ à¤®à¤¦à¤¦ à¤•à¤° à¤¸à¤•à¤¤à¤¾ à¤¹à¥‚à¤‚?"
     },
     {
       "en": "This monument was built in...",
-      "hi": "यह स्मारक ... में बनाया गया था"
+      "hi": "à¤¯à¤¹ à¤¸à¥à¤®à¤¾à¤°à¤• ... à¤®à¥‡à¤‚ à¤¬à¤¨à¤¾à¤¯à¤¾ à¤—à¤¯à¤¾ à¤¥à¤¾"
     },
     {
       "en": "Please follow me",
-      "hi": "कृपया मेरे पीछे आएं"
+      "hi": "à¤•à¥ƒà¤ªà¤¯à¤¾ à¤®à¥‡à¤°à¥‡ à¤ªà¥€à¤›à¥‡ à¤†à¤à¤‚"
     },
   ];
 
@@ -63,7 +63,7 @@ class _LanguageTranslatorScreenState extends State<LanguageTranslatorScreen> {
                 borderRadius: BorderRadius.circular(16),
                 boxShadow: [
                   BoxShadow(
-                      color: Colors.grey.withOpacity(0.08),
+                      color: Colors.grey.withValues(alpha: 0.08),
                       blurRadius: 8,
                       offset: const Offset(0, 3)),
                 ],
@@ -75,7 +75,7 @@ class _LanguageTranslatorScreenState extends State<LanguageTranslatorScreen> {
                   Container(
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: const Color(0xFF7F67F8).withOpacity(0.15),
+                      color: const Color(0xFF7F67F8).withValues(alpha: 0.15),
                       shape: BoxShape.circle,
                     ),
                     child: const Icon(Iconsax.arrow_swap_horizontal,
@@ -96,7 +96,7 @@ class _LanguageTranslatorScreenState extends State<LanguageTranslatorScreen> {
                 borderRadius: BorderRadius.circular(16),
                 boxShadow: [
                   BoxShadow(
-                      color: Colors.grey.withOpacity(0.08),
+                      color: Colors.grey.withValues(alpha: 0.08),
                       blurRadius: 8,
                       offset: const Offset(0, 3)),
                 ],
@@ -192,7 +192,7 @@ class _LanguageTranslatorScreenState extends State<LanguageTranslatorScreen> {
                     borderRadius: BorderRadius.circular(14),
                     boxShadow: [
                       BoxShadow(
-                          color: Colors.grey.withOpacity(0.08),
+                          color: Colors.grey.withValues(alpha: 0.08),
                           blurRadius: 8,
                           offset: const Offset(0, 3)),
                     ],

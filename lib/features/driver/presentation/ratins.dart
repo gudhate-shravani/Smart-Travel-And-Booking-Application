@@ -1,4 +1,4 @@
-// lib/reviews_screen.dart
+﻿// lib/reviews_screen.dart
 
 import 'package:flutter/material.dart';
 class ReviewsScreen extends StatefulWidget {
@@ -9,7 +9,6 @@ class ReviewsScreen extends StatefulWidget {
 }
 
 class _ReviewsScreenState extends State<ReviewsScreen> {
-  int _selectedFilterIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +48,7 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
       children: [
         CircleAvatar(
           radius: 30,
-          backgroundColor: Colors.amber.withOpacity(0.1),
+          backgroundColor: Colors.amber.withValues(alpha: 0.1),
           child: const Icon(Icons.star_outline_rounded, color: Colors.amber, size: 30),
         ),
         const SizedBox(height: 12),
@@ -104,11 +103,11 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
             ), const Divider(height: 32),
             Text('Rating Distribution', style: TextStyle(color: Colors.green, fontSize: 12)),
            
-            _buildRatingDistributionRow('5 ★', 856, 0.68),
-            _buildRatingDistributionRow('4 ★', 248, 0.20),
-            _buildRatingDistributionRow('3 ★', 93, 0.07),
-            _buildRatingDistributionRow('2 ★', 31, 0.02),
-            _buildRatingDistributionRow('1 ★', 19, 0.01),
+            _buildRatingDistributionRow('5 â˜…', 856, 0.68),
+            _buildRatingDistributionRow('4 â˜…', 248, 0.20),
+            _buildRatingDistributionRow('3 â˜…', 93, 0.07),
+            _buildRatingDistributionRow('2 â˜…', 31, 0.02),
+            _buildRatingDistributionRow('1 â˜…', 19, 0.01),
           ],
         ),
       ),
@@ -163,68 +162,10 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
   Widget _achievementItem(IconData icon, String label, Color color) {
     return Column(
       children: [
-        CircleAvatar(radius: 24, backgroundColor: color.withOpacity(0.1), child: Icon(icon, color: color)),
+        CircleAvatar(radius: 24, backgroundColor: color.withValues(alpha: 0.1), child: Icon(icon, color: color)),
         const SizedBox(height: 8),
         Text(label, textAlign: TextAlign.center, style: const TextStyle(fontSize: 12)),
       ],
-    );
-  }
-
-  Widget _buildFilterReviewsCard() {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-        child: Row(
-          children: [
-            const Icon(Icons.filter_list_rounded, size: 20),
-            const SizedBox(width: 8),
-            const Text('Filter Reviews'),
-            Expanded(
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    _filterChip("All Reviews", 5, 0),
-                    _filterChip("5 Stars", 3, 1),
-                    _filterChip("4 Stars", 1, 2),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _filterChip(String label, int count, int index) {
-    final bool isSelected = _selectedFilterIndex == index;
-    return Padding(
-      padding: const EdgeInsets.only(left: 8.0),
-      child: ChoiceChip(
-        label: Row(
-          children: [
-            Text(label),
-            const SizedBox(width: 4),
-            CircleAvatar(
-              radius: 9,
-              backgroundColor: isSelected ? Colors.white.withOpacity(0.5) : Colors.blue,
-              child: Text(count.toString(), style: TextStyle(fontSize: 11, color: isSelected ? Colors.blue : Colors.white, fontWeight: FontWeight.bold)),
-            )
-          ],
-        ),
-        selected: isSelected,
-        onSelected: (selected) {
-          if (selected) {
-            setState(() {
-              _selectedFilterIndex = index;
-            });
-          }
-        },
-        selectedColor: Colors.blue,
-        labelStyle: TextStyle(color: isSelected ? Colors.white : Colors.black87),
-      ),
     );
   }
 
@@ -276,7 +217,7 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(color: Colors.grey.shade100, borderRadius: BorderRadius.circular(8)),
-                  child: Text("$from → $to", style: const TextStyle(fontSize: 12)),
+                  child: Text("$from â†’ $to", style: const TextStyle(fontSize: 12)),
                 ),
                 const Spacer(),
                 const Icon(Icons.thumb_up_alt_outlined, size: 16, color: Colors.grey),
@@ -326,7 +267,7 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
   Widget _insightItem(String value, String label, IconData icon, Color color) {
     return Container(
       padding: const EdgeInsets.all(8),
-      decoration: BoxDecoration(color: color.withOpacity(0.1), borderRadius: BorderRadius.circular(12)),
+      decoration: BoxDecoration(color: color.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(12)),
       child: Row(
         children: [
           Icon(icon, color: color, size: 28),
@@ -401,7 +342,7 @@ Widget buildRatingTipsCard() {
     clipBehavior: Clip.antiAlias,
     child: Container(
       // Sets the light blue background color.
-      color: Colors.blue.shade50.withOpacity(0.5),
+      color: Colors.blue.shade50.withValues(alpha: 0.5),
       padding: const EdgeInsets.all(16.0),
       child: Column(
         // Aligns children to the start (left) of the column.

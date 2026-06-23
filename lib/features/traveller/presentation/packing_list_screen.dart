@@ -9,10 +9,10 @@ class PackingListScreen extends StatefulWidget {
   final List<PackingCategory> packingList; // <-- NEW: Accept the generated list
   
   const PackingListScreen({
-    Key? key,
+    super.key,
     required this.destination,
     required this.packingList,
-  }) : super(key: key);
+  });
 
   @override
   State<PackingListScreen> createState() => _PackingListScreenState();

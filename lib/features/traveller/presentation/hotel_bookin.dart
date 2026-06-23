@@ -193,10 +193,10 @@ class _HotelBookingScreenState extends State<HotelBookingScreen> {
     return TextField(
       decoration: InputDecoration(
         hintText: hint,
-        hintStyle: TextStyle(color: Colors.white.withOpacity(0.8)),
+        hintStyle: TextStyle(color: Colors.white.withValues(alpha: 0.8)),
         prefixIcon: Icon(icon, color: Colors.white, size: 20),
         filled: true,
-        fillColor: Colors.white.withOpacity(0.2),
+        fillColor: Colors.white.withValues(alpha: 0.2),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide.none,
@@ -389,7 +389,6 @@ class _HotelBookingScreenState extends State<HotelBookingScreen> {
                     const Spacer(),
                     ElevatedButton(
                       onPressed: () {},
-                      child: const Text('Book Now'),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF0D47A1), // Dark blue
                         shape: RoundedRectangleBorder(
@@ -397,6 +396,7 @@ class _HotelBookingScreenState extends State<HotelBookingScreen> {
                         ),
                         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                       ),
+                      child: const Text('Book Now'),
                     ),
                   ],
                 ),
@@ -416,7 +416,7 @@ class _HotelBookingScreenState extends State<HotelBookingScreen> {
         filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
         child: Container(
           padding: const EdgeInsets.all(8),
-          color: Colors.black.withOpacity(0.3),
+          color: Colors.black.withValues(alpha: 0.3),
           child: Icon(icon, color: Colors.white, size: 20),
         ),
       ),
@@ -468,12 +468,11 @@ class _HotelBookingScreenState extends State<HotelBookingScreen> {
           const SizedBox(height: 8),
            Text(
             'Save up to 40% on hotels available tonight',
-            style: TextStyle(color: Colors.white.withOpacity(0.9)),
+            style: TextStyle(color: Colors.white.withValues(alpha: 0.9)),
           ),
           const SizedBox(height: 16),
           ElevatedButton(
             onPressed: () {},
-            child: const Text('View Tonight\'s Deals'),
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.teal.shade900, backgroundColor: Colors.white,
               padding: const EdgeInsets.symmetric(vertical: 14),
@@ -481,26 +480,10 @@ class _HotelBookingScreenState extends State<HotelBookingScreen> {
                 borderRadius: BorderRadius.circular(12),
               ),
             ),
+            child: const Text('View Tonight\'s Deals'),
           )
         ],
       ),
-    );
-  }
-  
-  // Builds the placeholder bottom navigation bar.
-  Widget _buildBottomNavBar() {
-    return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      selectedItemColor: Colors.deepPurple,
-      unselectedItemColor: Colors.grey.shade500,
-      currentIndex: 3, // Set 'Booking' as active for context.
-      items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.location_on), label: 'Trip'),
-        BottomNavigationBarItem(icon: Icon(Icons.camera), label: 'Social'),
-        BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Explore'),
-        BottomNavigationBarItem(icon: Icon(Icons.business), label: 'Booking'),
-        BottomNavigationBarItem(icon: Icon(Icons.directions_car), label: 'Transport'),
-      ],
     );
   }
 }

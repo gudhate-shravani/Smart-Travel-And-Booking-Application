@@ -11,7 +11,7 @@ final List<TeamMember> teamMembers = [
 ];
 
 class ProjectInfoCard extends StatelessWidget {
-  const ProjectInfoCard({Key? key}) : super(key: key);
+  const ProjectInfoCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class ProjectInfoCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           const Text(
-            'About the Project: Let\'s Explore 🌍',
+            'About the Project: Let\'s Explore ðŸŒ',
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
@@ -71,7 +71,7 @@ class ProjectInfoCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.1),
+        color: color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(20),
         border: Border.all(color: color, width: 0.8),
       ),
@@ -86,7 +86,7 @@ class ProjectInfoCard extends StatelessWidget {
 class TeamCard extends StatelessWidget {
   final TeamMember member;
 
-  const TeamCard({Key? key, required this.member}) : super(key: key);
+  const TeamCard({super.key, required this.member});
 
   @override
   Widget build(BuildContext context) {
@@ -100,10 +100,10 @@ class MentorCard extends StatelessWidget {
   static const String mentorImagePath = 'assets/images/shashi_bagal.jpg';
 
   const MentorCard({
-    Key? key,
+    super.key,
     required this.name,
     required this.description,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +119,7 @@ class MentorCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(17.0),
         boxShadow: [
           BoxShadow(
-            color: Colors.deepPurple.withOpacity(0.3),
+            color: Colors.deepPurple.withValues(alpha: 0.3),
             spreadRadius: 1,
             blurRadius: 8,
             offset: const Offset(0, 5),
@@ -216,7 +216,7 @@ class AboutUsScreen extends StatelessWidget {
               padding: EdgeInsets.all(20.0),
               child: Center(
                 child: Text(
-                  "Let's Explore © 2025 | Developed with ❤️ by the Team",
+                  "Let's Explore Â© 2025 | Developed with â¤ï¸ by the Team",
                   style: TextStyle(
                     fontSize: 14,
                     color: Colors.grey,

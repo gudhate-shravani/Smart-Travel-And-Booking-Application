@@ -1,3 +1,5 @@
+﻿// ignore_for_file: use_build_context_synchronously
+
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -17,7 +19,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
 
   String userName = "Loading...";
   File? _selectedImage;
-  bool _isUploading = false;
+  final bool _isUploading = false;
 
   @override
   void initState() {
@@ -49,18 +51,6 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     }
   }
 
-  Future<String?> _uploadImage(String userEmail, String location) async {
-    try {
-      setState(() => _isUploading = true);
-      // Firebase Storage upload code commented intentionally
-      return null;
-    } catch (e) {
-      debugPrint("Image upload failed: $e");
-      return null;
-    } finally {
-      setState(() => _isUploading = false);
-    }
-  }
 
   void _showAddPostSheet(BuildContext context, String email) {
     final TextEditingController nameController = TextEditingController();
@@ -135,7 +125,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                           Text(
                             _selectedImage == null
                                 ? "Upload Image"
-                                : "Image Selected ✅",
+                                : "Image Selected âœ…",
                             style: const TextStyle(color: Colors.purple),
                           ),
                         ],
@@ -289,7 +279,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               ),
             ),
 
-            // ✅ Updated StreamBuilder
+            // âœ… Updated StreamBuilder
             StreamBuilder<QuerySnapshot>(
               stream: _firestore
                   .collection("Traveler")

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 
 class NotificationsScreen extends StatelessWidget {
   const NotificationsScreen({super.key});
@@ -23,13 +23,13 @@ class NotificationsScreen extends StatelessWidget {
         children: [
           _buildNotificationTile(
             title: 'New Tour Booking',
-            message: 'A user booked your “Taj Mahal Sunrise Tour”.',
+            message: 'A user booked your â€œTaj Mahal Sunrise Tourâ€.',
             time: '2h ago',
             icon: Icons.tour,
           ),
           _buildNotificationTile(
             title: 'Payment Received',
-            message: '₹4,500 has been added to your wallet.',
+            message: 'â‚¹4,500 has been added to your wallet.',
             time: '5h ago',
             icon: Icons.payment,
           ),
@@ -53,11 +53,11 @@ class NotificationsScreen extends StatelessWidget {
     return Card(
       margin: const EdgeInsets.only(bottom: 12),
       elevation: 2,
-      shadowColor: Colors.black.withOpacity(0.05),
+      shadowColor: Colors.black.withValues(alpha: 0.05),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: ListTile(
         leading: CircleAvatar(
-          backgroundColor: const Color(0xFF5F2EEA).withOpacity(0.1),
+          backgroundColor: const Color(0xFF5F2EEA).withValues(alpha: 0.1),
           child: Icon(icon, color: const Color(0xFF5F2EEA)),
         ),
         title: Text(title,

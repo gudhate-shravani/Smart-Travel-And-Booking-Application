@@ -1,3 +1,5 @@
+﻿// ignore_for_file: use_build_context_synchronously
+
 
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
@@ -78,7 +80,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           .get();
 
       if (!doc.exists) {
-        // Document doesn't exist — keep controllers as they are (or clear them)
+        // Document doesn't exist â€” keep controllers as they are (or clear them)
         // Per your request: if not available keep blank. But you had default text:
         // We'll keep current controller values if you already seeded them,
         // but if you prefer blank, uncomment the next block.
@@ -414,7 +416,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       width: 150,
       padding: const EdgeInsets.symmetric(vertical: 16),
       decoration: BoxDecoration(
-        color: isLocked ? Colors.grey.shade200 : color.withOpacity(0.1),
+        color: isLocked ? Colors.grey.shade200 : color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: isLocked ? Colors.grey.shade300 : color),
       ),

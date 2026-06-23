@@ -1,9 +1,12 @@
+﻿// ignore_for_file: use_build_context_synchronously
+
 
 
 // requests_page.dart
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:travelapplication/features/driver/presentation/ride_map_screen.dart';
 
 class RequestsPage extends StatefulWidget {
   const RequestsPage({super.key});
@@ -59,7 +62,7 @@ class _RequestsPageState extends State<RequestsPage> {
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 decoration: BoxDecoration(
                   color: isSelected
-                      ? colors[index].withOpacity(0.15)
+                      ? colors[index].withValues(alpha: 0.15)
                       : Colors.transparent,
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(
@@ -195,8 +198,6 @@ class _RequestsPageState extends State<RequestsPage> {
                       final destination = data['destination_location'] ?? 'Unknown';
                       final time = data['time'] ?? '';
                       final fare = data['fare'] ?? '';
-                      final trip = data['trip'] ?? 'not_started';
-                      final payment = data['payment'] ?? 'unpaid';
 
                       // Determine card status text for UI
                       String statusForUI = selectedStatus == 0 ? 'Pending' : (selectedStatus == 1 ? 'Accepted' : 'Completed');
@@ -250,7 +251,7 @@ class _RequestsPageState extends State<RequestsPage> {
                           }
                         } : null,
                       );
-                    }).toList(),
+                    }),
                   ],
                 );
               },
@@ -328,13 +329,11 @@ class _RequestsPageState extends State<RequestsPage> {
                       final endDate = data['endDate'] ?? '';
                       final endTime = data['endTime'] ?? '';
                       final fare = data['fare'] ?? '';
-                      final status = data['status'] ?? 'pending';
-
                       return _rentalRequestCard(
                         name: data['fullName'] ?? senderEmail,
                         from: data['from'] ?? '',
-                        rentaltime: '${startDate} ${startTime}',
-                        time: '${endDate} ${endTime}',
+                        rentaltime: '$startDate $startTime',
+                        time: '$endDate $endTime',
                         fare: fare.toString(),
                         statusText: _mapRentalStatusToUI(selectedStatus),
                         onAccept: selectedStatus == 0 ? () async {
@@ -368,7 +367,7 @@ class _RequestsPageState extends State<RequestsPage> {
                           }
                         } : null,
                       );
-                    }).toList(),
+                    }),
                   ],
                 );
               },
@@ -477,7 +476,7 @@ class _RequestsPageState extends State<RequestsPage> {
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
+            color: Colors.grey.withValues(alpha:0.1),
             spreadRadius: 2,
             blurRadius: 6,
             offset: const Offset(0, 3),
@@ -501,7 +500,7 @@ class _RequestsPageState extends State<RequestsPage> {
                     Row(
                       children: [
                         const Icon(Icons.star, size: 16, color: Colors.amber),
-                        Text(" $rating • $time",
+                        Text(" $rating Ã¢â‚¬Â¢ $time",
                             style: const TextStyle(
                                 fontSize: 12, color: Colors.grey)),
                       ],
@@ -513,7 +512,7 @@ class _RequestsPageState extends State<RequestsPage> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
-                  color: statusColor.withOpacity(0.1),
+                  color: statusColor.withValues(alpha:0.1),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Text(status,
@@ -529,7 +528,7 @@ class _RequestsPageState extends State<RequestsPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("$rideTime • $distance • $duration",
+              Text("$rideTime Ã¢â‚¬Â¢ $distance Ã¢â‚¬Â¢ $duration",
                   style: const TextStyle(color: Colors.grey)),
               Text(price,
                   style: const TextStyle(
@@ -619,7 +618,7 @@ class _RequestsPageState extends State<RequestsPage> {
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
+            color: Colors.grey.withValues(alpha:0.1),
             spreadRadius: 2,
             blurRadius: 6,
             offset: const Offset(0, 3),
@@ -636,14 +635,14 @@ class _RequestsPageState extends State<RequestsPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(name, style: const TextStyle(fontWeight: FontWeight.bold)),
-                  Text("Rental • $rentaltime", style: const TextStyle(fontSize: 12, color: Colors.grey)),
+                  Text("Rental Ã¢â‚¬Â¢ $rentaltime", style: const TextStyle(fontSize: 12, color: Colors.grey)),
                 ],
               ),
             ),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               decoration: BoxDecoration(
-                color: statusColor.withOpacity(0.1),
+                color: statusColor.withValues(alpha:0.1),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Text(statusText, style: TextStyle(color: statusColor, fontSize: 12)),

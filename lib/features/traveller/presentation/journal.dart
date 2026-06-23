@@ -156,7 +156,7 @@ class _JournalScreenState extends State<JournalScreen> {
           const SizedBox(height: 8),
           Text(
             'Jan 15-25, 2024 • 8 entries',
-            style: TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 14),
+            style: TextStyle(color: Colors.white.withValues(alpha:0.9), fontSize: 14),
           ),
           const SizedBox(height: 16),
           Row(
@@ -177,7 +177,7 @@ class _JournalScreenState extends State<JournalScreen> {
       margin: const EdgeInsets.only(right: 8),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-        color: isSelected ? Colors.white : Colors.white.withOpacity(0.2),
+        color: isSelected ? Colors.white : Colors.white.withValues(alpha:0.2),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Text(
@@ -199,7 +199,7 @@ class _JournalScreenState extends State<JournalScreen> {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha:0.05),
             blurRadius: 10,
             offset: const Offset(0, 4),
           )
@@ -326,7 +326,7 @@ class _JournalScreenState extends State<JournalScreen> {
               const SizedBox(width: 6),
               Text('${entry.weather}, ${entry.temperature}'),
               const Spacer(),
-              ...entry.tags.map((tag) => _buildTagChip(tag)).toList(),
+              ...entry.tags.map((tag) => _buildTagChip(tag)),
             ],
           )
         ],
@@ -432,26 +432,7 @@ class _JournalScreenState extends State<JournalScreen> {
       ),
     );
   }
-  
-  // Builds the placeholder bottom navigation bar.
-  Widget _buildBottomNavBar() {
-    return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      selectedItemColor: Colors.deepPurple,
-      unselectedItemColor: Colors.grey.shade500,
-      currentIndex: 0, // Set 'Trip' as active for context.
-      items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.location_on), label: 'Trip'),
-        BottomNavigationBarItem(icon: Icon(Icons.camera), label: 'Social'),
-        BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Explore'),
-        BottomNavigationBarItem(icon: Icon(Icons.business), label: 'Booking'),
-        BottomNavigationBarItem(icon: Icon(Icons.directions_car), label: 'Transport'),
-      ],
-    );
-  }
 }
-
-// A reusable widget for a statistic item in the stats card.
 class _StatItem extends StatelessWidget {
   final String count;
   final String label;
@@ -463,7 +444,7 @@ class _StatItem extends StatelessWidget {
       children: [
         Text(count, style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.white)),
         const SizedBox(height: 4),
-        Text(label, style: TextStyle(fontSize: 14, color: Colors.white.withOpacity(0.8))),
+        Text(label, style: TextStyle(fontSize: 14, color: Colors.white.withValues(alpha:0.8))),
       ],
     );
   }

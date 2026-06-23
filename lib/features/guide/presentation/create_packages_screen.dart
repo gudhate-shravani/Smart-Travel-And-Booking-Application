@@ -1,3 +1,5 @@
+﻿// ignore_for_file: use_build_context_synchronously
+
 
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
@@ -43,7 +45,7 @@ class _CreatePackageScreenState extends State<CreatePackageScreen> {
           "description": data['description'] ??
               "No description available for this package.",
           "duration": data['duration'] ?? "N/A",
-          "price": data['price'] ?? "₹0",
+          "price": data['price'] ?? "â‚¹0",
           "maxTourists": data['maxTourists'] ?? 0,
           "bookings": data['bookings'] ?? 0,
           "image": data['image'] ??
@@ -253,7 +255,7 @@ class _CreatePackageScreenState extends State<CreatePackageScreen> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 6,
             offset: const Offset(0, 2),
           ),

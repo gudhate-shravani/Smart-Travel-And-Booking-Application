@@ -1,4 +1,6 @@
+﻿
 
+// ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
 import 'package:google_generative_ai/google_generative_ai.dart' show 
@@ -6,14 +8,13 @@ import 'package:google_generative_ai/google_generative_ai.dart' show
   GenerationConfig, 
   Schema, 
   SchemaType, 
-  Content, 
-  GenerativeAIException;
+  Content;
 import 'package:travelapplication/features/traveller/presentation/data.dart'; 
 
 import 'packing_list_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
-  const WelcomeScreen({Key? key}) : super(key: key);
+  const WelcomeScreen({super.key});
 
   @override
   State<WelcomeScreen> createState() => _WelcomeScreenState();
@@ -48,9 +49,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       _errorMessage = '';
     });
 
-    // 1. Craft the detailed, structured prompt
-    const systemInstruction = "You are a travel packing list generator. Given a destination, your task is to generate a comprehensive packing list categorized by type. Respond ONLY with a valid JSON array of categories. DO NOT include any text, markdown explanation, or conversational dialogue outside of the JSON block.";
-
+   
     final userPrompt = "Generate a packing list for a 7-day trip to '$destination'. The output must be a JSON array. Each object in the array must have two keys: 'category' (string) and 'items' (array). Each item in 'items' must have 'name' (string) and 'quantity' (string, e.g., '(3-5)', '(2 pairs)', or null if none).";
 
     try {
@@ -105,7 +104,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       );
       
     } catch (e) {
-      print('Gemini API Error: $e');
+      debugPrint('Gemini API Error: $e');
       setState(() {
         _errorMessage = 'Failed to generate list. Please try again or check your API key.';
       });

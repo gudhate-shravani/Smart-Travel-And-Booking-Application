@@ -1,10 +1,10 @@
 
 
-import 'dart:ui'; // Required for ImageFilter.blur
+// Required for ImageFilter.blur
 import 'package:flutter/material.dart';
 import 'package:travelapplication/features/traveller/presentation/budget.dart';
 import 'aidestination.dart';
-import 'packinngAi.dart';
+import 'packinngai.dart';
 import 'tripplanerai.dart';
 
 class AIHomeScreen extends StatefulWidget {
@@ -15,13 +15,7 @@ class AIHomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<AIHomeScreen> {
-  int _selectedIndex = 0;
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
   final String compassImage =
       'https://images.pexels.com/photos/1083822/pexels-photo-1083822.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1';
   final String packingImage =
@@ -70,7 +64,7 @@ class _HomeScreenState extends State<AIHomeScreen> {
                     _buildFeatureCard(
                       title: 'AI Packing List Generator',
                       subtitle:
-                          'Never forget essentials — smart packing for any trip',
+                          'Never forget essentials â€” smart packing for any trip',
                       imageUrl: packingImage,
                       icon: Icons.backpack,
                       iconColor: Colors.redAccent,
@@ -164,7 +158,7 @@ class _HomeScreenState extends State<AIHomeScreen> {
         borderRadius: BorderRadius.circular(25),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.2),
+            color: Colors.grey.withValues(alpha: 0.2),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -204,7 +198,7 @@ class _HomeScreenState extends State<AIHomeScreen> {
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
-                color: Colors.grey.withOpacity(0.25),
+                color: Colors.grey.withValues(alpha: 0.25),
                 blurRadius: 10,
                 offset: const Offset(0, 5),
               ),

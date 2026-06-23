@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:travelapplication/features/guide/presentation/create_packages_screen.dart';
@@ -34,7 +34,7 @@ class GuideHubApp extends StatelessWidget {
       scaffoldBackgroundColor:
           brightness == Brightness.dark ? Colors.black : const Color(0xFFF7F8FA),
           cardTheme: CardThemeData( elevation: 2,
-        shadowColor: Colors.black.withOpacity(0.05),
+        shadowColor: Colors.black.withValues(alpha: 0.05),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),)
    
     );

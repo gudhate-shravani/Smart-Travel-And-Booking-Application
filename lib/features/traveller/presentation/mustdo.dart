@@ -1,4 +1,4 @@
-/*import 'package:flutter/material.dart';
+﻿/*import 'package:flutter/material.dart';
 import 'dart:ui'; // Required for ImageFilter.blur
 
 // --- DATA MODELS ---
@@ -151,7 +151,7 @@ class _MustDoScreenState extends State<MustDoScreen> {
             value: 0.6,
             onChanged: (val) {},
             activeColor: Colors.white,
-            inactiveColor: Colors.white.withOpacity(0.3),
+            inactiveColor: Colors.white.withValues(alpha: 0.3),
           ),
         ],
       ),
@@ -173,7 +173,7 @@ class _MustDoScreenState extends State<MustDoScreen> {
               margin: const EdgeInsets.only(right: 8),
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
               decoration: BoxDecoration(
-                color: isSelected ? Colors.white : Colors.white.withOpacity(0.2),
+                color: isSelected ? Colors.white : Colors.white.withValues(alpha: 0.2),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Text(
@@ -306,7 +306,7 @@ class _MustDoScreenState extends State<MustDoScreen> {
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [Colors.black.withOpacity(0.7), Colors.transparent],
+                colors: [Colors.black.withValues(alpha: 0.7), Colors.transparent],
                 begin: Alignment.bottomCenter,
                 end: Alignment.center,
               ),
@@ -443,7 +443,7 @@ class _MustDoScreenState extends State<MustDoScreen> {
         filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
         child: Container(
           padding: const EdgeInsets.all(6),
-          color: Colors.black.withOpacity(0.3),
+          color: Colors.black.withValues(alpha: 0.3),
           child: Icon(icon, color: Colors.white, size: 18),
         ),
       ),
@@ -736,7 +736,7 @@ class _MustDoScreenState extends State<MustDoScreen> {
             value: 0.6,
             onChanged: (val) {},
             activeColor: Colors.white,
-            inactiveColor: Colors.white.withOpacity(0.3),
+            inactiveColor: Colors.white.withValues(alpha: 0.3),
           ),
         ],
       ),
@@ -763,7 +763,7 @@ class _MustDoScreenState extends State<MustDoScreen> {
               margin: const EdgeInsets.only(right: 8),
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
               decoration: BoxDecoration(
-                color: isSelected ? Colors.white : Colors.white.withOpacity(0.2),
+                color: isSelected ? Colors.white : Colors.white.withValues(alpha: 0.2),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Text(
@@ -915,7 +915,7 @@ class _MustDoScreenState extends State<MustDoScreen> {
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [Colors.black.withOpacity(0.7), Colors.transparent],
+                colors: [Colors.black.withValues(alpha: 0.7), Colors.transparent],
                 begin: Alignment.bottomCenter,
                 end: Alignment.center,
               ),
@@ -1064,7 +1064,7 @@ class _MustDoScreenState extends State<MustDoScreen> {
         filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
         child: Container(
           padding: const EdgeInsets.all(6),
-          color: Colors.black.withOpacity(0.3),
+          color: Colors.black.withValues(alpha: 0.3),
           child: Icon(icon, color: Colors.white, size: 18),
         ),
       ),
@@ -1229,7 +1229,7 @@ class RecommendationItem {
 // =========================================================================
 
 class TravelApiRealClient {
-  // 🔑 REPLACE WITH YOUR ACTUAL KEYS AND ENDPOINTS
+  // ðŸ”‘ REPLACE WITH YOUR ACTUAL KEYS AND ENDPOINTS
   static const String _geminiApiKey = 'gemini api key';
   static const String _unsplashAccessKey = 'unsplash api key';
   static const String _geminiApiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=$_geminiApiKey';
@@ -1308,11 +1308,11 @@ class TravelApiRealClient {
         return items;
       }
       // If API fails, fall back to mock data
-      print('Gemini API failed with status ${response.statusCode}. Falling back to mock data.');
+      debugPrint('Gemini API failed with status ${response.statusCode}. Falling back to mock data.');
       await Future.delayed(const Duration(milliseconds: 500));
       return _mockData[city.toLowerCase()] ?? [];
     } catch (e) {
-      print('Error during real API call: $e. Falling back to mock data.');
+      debugPrint('Error during real API call: $e. Falling back to mock data.');
       // Fallback to mock data on error
       await Future.delayed(const Duration(milliseconds: 500));
       return _mockData[city.toLowerCase()] ?? [];
@@ -1320,10 +1320,6 @@ class TravelApiRealClient {
     
     
     // --- MOCK SIMULATION (Active by default) ---
-    await Future.delayed(const Duration(milliseconds: 1500));
-    final lowerCity = city.toLowerCase();
-    final items = _mockData[lowerCity] ?? _mockData['new york'] ?? [];
-    return items;
   }
 
   // 2. --- UNSPLASH: FETCH IMAGE URL (Real/Mock) ---
@@ -1342,7 +1338,7 @@ class TravelApiRealClient {
         }
       }
     } catch (e) {
-      print('Unsplash API error: $e');
+      debugPrint('Unsplash API error: $e');
     }
     
     
@@ -1482,7 +1478,7 @@ class _MustDoScreenState extends State<MustDoScreen> {
             value: 0.6,
             onChanged: (val) {},
             activeColor: Colors.white,
-            inactiveColor: Colors.white.withOpacity(0.3),
+            inactiveColor: Colors.white.withValues(alpha:0.3),
           ),
         ],
       ),
@@ -1509,7 +1505,7 @@ class _MustDoScreenState extends State<MustDoScreen> {
               margin: const EdgeInsets.only(right: 8),
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
               decoration: BoxDecoration(
-                color: isSelected ? Colors.white : Colors.white.withOpacity(0.2),
+                color: isSelected ? Colors.white : Colors.white.withValues(alpha:0.2),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Text(
@@ -1660,7 +1656,7 @@ class _MustDoScreenState extends State<MustDoScreen> {
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [Colors.black.withOpacity(0.7), Colors.transparent],
+                colors: [Colors.black.withValues(alpha:0.7), Colors.transparent],
                 begin: Alignment.bottomCenter,
                 end: Alignment.center,
               ),
@@ -1809,7 +1805,7 @@ class _MustDoScreenState extends State<MustDoScreen> {
         filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
         child: Container(
           padding: const EdgeInsets.all(6),
-          color: Colors.black.withOpacity(0.3),
+          color: Colors.black.withValues(alpha:0.3),
           child: Icon(icon, color: Colors.white, size: 18),
         ),
       ),

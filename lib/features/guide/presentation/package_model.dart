@@ -1,5 +1,4 @@
 // lib/models/package_model.dart
-import 'guide_model.dart';
 
 class TourPackage {
   final String title;

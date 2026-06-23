@@ -1,3 +1,5 @@
+﻿// ignore_for_file: use_build_context_synchronously
+
 // lib/screens/package_detail_screen.dart
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -14,8 +16,8 @@ class PackageDetailScreen extends StatelessWidget {
   const PackageDetailScreen({
     required this.guideEmail,
     required this.packageName,
-    Key? key, required this.tourPackage,
-  }) : super(key: key);
+    super.key, required this.tourPackage,
+  });
  
 
   @override
@@ -97,9 +99,9 @@ class PackageDetailScreen extends StatelessWidget {
           onPressed: ()async {
     final user = FirebaseAuth.instance.currentUser;
     if (user == null) return;
-    print(guideEmail);
-    print(packageName);
-    print(user.email);
+    debugPrint(guideEmail);
+    debugPrint(packageName);
+    debugPrint(user.email);
 
    // final guideEmail = guideEmail; // from previous page
    // final packageName = packageName;

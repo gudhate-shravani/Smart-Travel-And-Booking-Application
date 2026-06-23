@@ -35,13 +35,13 @@ class _TravelToolsScreenState extends State<TravelToolsScreen> {
     DocumentItem(
       icon: Icons.description_outlined,
       title: 'Passport',
-      details: '2.4 MB • 2024-01-15',
+      details: '2.4 MB â€¢ 2024-01-15',
       type: 'Document',
     ),
     DocumentItem(
       icon: Icons.flight_takeoff_outlined,
       title: 'Flight Tickets',
-      details: '1.8 MB • 2024-01-18',
+      details: '1.8 MB â€¢ 2024-01-18',
       type: 'Ticket',
     ),
   ];
@@ -135,7 +135,7 @@ class _TravelToolsScreenState extends State<TravelToolsScreen> {
             color: isSelected ? Colors.white : Colors.transparent,
             borderRadius: BorderRadius.circular(20),
             boxShadow: isSelected
-                ? [BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 10)]
+                ? [BoxShadow(color: Colors.black.withValues(alpha: 0.1), blurRadius: 10)]
                 : [],
           ),
           child: Text(
@@ -211,7 +211,7 @@ class _TravelToolsScreenState extends State<TravelToolsScreen> {
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.9),
+                  color: Colors.white.withValues(alpha: 0.9),
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Column(
@@ -341,7 +341,7 @@ class _TravelToolsScreenState extends State<TravelToolsScreen> {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.15),
+        color: Colors.white.withValues(alpha: 0.15),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
@@ -379,10 +379,10 @@ class _TravelToolsScreenState extends State<TravelToolsScreen> {
         children: [
            const Text('Weather Updates', style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
            const SizedBox(height: 12),
-           _buildWeatherRow(Icons.wb_sunny, Colors.orange, 'New York', 'Sunny', '22°C'),
-           _buildWeatherRow(Icons.cloud_outlined, Colors.grey.shade300, 'London', 'Cloudy', '15°C'),
-           _buildWeatherRow(Icons.grain, Colors.blue.shade200, 'Tokyo', 'Rainy', '18°C'),
-           _buildWeatherRow(Icons.cloud, Colors.grey.shade400, 'Sydney', 'Partly Cloudy', '25°C'),
+           _buildWeatherRow(Icons.wb_sunny, Colors.orange, 'New York', 'Sunny', '22Â°C'),
+           _buildWeatherRow(Icons.cloud_outlined, Colors.grey.shade300, 'London', 'Cloudy', '15Â°C'),
+           _buildWeatherRow(Icons.grain, Colors.blue.shade200, 'Tokyo', 'Rainy', '18Â°C'),
+           _buildWeatherRow(Icons.cloud, Colors.grey.shade400, 'Sydney', 'Partly Cloudy', '25Â°C'),
         ],
       ),
     );
@@ -393,7 +393,7 @@ class _TravelToolsScreenState extends State<TravelToolsScreen> {
       margin: const EdgeInsets.only(bottom: 10),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.15),
+        color: Colors.white.withValues(alpha: 0.15),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Row(
@@ -569,20 +569,6 @@ class _TravelToolsScreenState extends State<TravelToolsScreen> {
   bool _isWeatherLoading = false;
 
   // --- MOCK DATA --- (Unchanged)
-  final List<DocumentItem> _documents = [
-    DocumentItem(
-      icon: Icons.description_outlined,
-      title: 'Passport',
-      details: '2.4 MB • 2024-01-15',
-      type: 'Document',
-    ),
-    DocumentItem(
-      icon: Icons.flight_takeoff_outlined,
-      title: 'Flight Tickets',
-      details: '1.8 MB • 2024-01-18',
-      type: 'Ticket',
-    ),
-  ];
 
   @override
   void initState() {
@@ -712,7 +698,7 @@ class _TravelToolsScreenState extends State<TravelToolsScreen> {
       return {
         'city': city,
         'condition': condition,
-        'temp': '$temp°C',
+        'temp': '$tempÂ°C',
         'icon': icons[condition],
         'color': colors[condition],
       };
@@ -804,7 +790,7 @@ class _TravelToolsScreenState extends State<TravelToolsScreen> {
             boxShadow: isSelected
                 ? [
                     BoxShadow(
-                        color: Colors.black.withOpacity(0.1), blurRadius: 10)
+                        color: Colors.black.withValues(alpha: 0.1), blurRadius: 10)
                   ]
                 : [],
           ),
@@ -911,7 +897,7 @@ class _TravelToolsScreenState extends State<TravelToolsScreen> {
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.9),
+                  color: Colors.white.withValues(alpha:0.9),
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Column(
@@ -1083,7 +1069,7 @@ class _TravelToolsScreenState extends State<TravelToolsScreen> {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.15),
+        color: Colors.white.withValues(alpha:0.15),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
@@ -1153,7 +1139,7 @@ class _TravelToolsScreenState extends State<TravelToolsScreen> {
               icon: const Icon(Icons.refresh, color: Colors.white),
               label: const Text('Refresh Weather', style: TextStyle(color: Colors.white)),
               style: TextButton.styleFrom(
-                  backgroundColor: Colors.white.withOpacity(0.1)),
+                  backgroundColor: Colors.white.withValues(alpha:0.1)),
             ),
           )
         ],
@@ -1168,7 +1154,7 @@ class _TravelToolsScreenState extends State<TravelToolsScreen> {
       margin: const EdgeInsets.only(bottom: 10),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.15),
+        color: Colors.white.withValues(alpha:0.15),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Row(
@@ -1195,70 +1181,4 @@ class _TravelToolsScreenState extends State<TravelToolsScreen> {
     );
   }
 
-  Widget _buildDocumentVault() {
-    // ... (Unchanged)
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text('Document Vault',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-              OutlinedButton(
-                onPressed: () {},
-                child: const Text('Add Document'),
-                style: OutlinedButton.styleFrom(
-                  side: BorderSide(color: Colors.grey.shade300),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12)),
-                ),
-              ),
-            ],
-          ),
-          const Divider(height: 24),
-          ListView.separated(
-            itemCount: _documents.length,
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            separatorBuilder: (context, index) => const SizedBox(height: 12),
-            itemBuilder: (context, index) {
-              final doc = _documents[index];
-              return Row(
-                children: [
-                  Icon(doc.icon, color: Colors.blue.shade800),
-                  const SizedBox(width: 12),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(doc.title,
-                          style: const TextStyle(fontWeight: FontWeight.bold)),
-                      Text(doc.details,
-                          style: TextStyle(
-                              color: Colors.grey.shade600, fontSize: 12)),
-                    ],
-                  ),
-                  const Spacer(),
-                  Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                    decoration: BoxDecoration(
-                      color: Colors.grey.shade200,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Text(doc.type, style: const TextStyle(fontSize: 12)),
-                  )
-                ],
-              );
-            },
-          )
-        ],
-      ),
-    );
-  }
 }

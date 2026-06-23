@@ -1,3 +1,5 @@
+﻿// ignore_for_file: use_build_context_synchronously
+
 
 
 import 'dart:io';
@@ -7,7 +9,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AddVehicleForm extends StatefulWidget {
-  const AddVehicleForm({Key? key}) : super(key: key);
+  const AddVehicleForm({super.key});
 
   @override
   State<AddVehicleForm> createState() => _AddVehicleFormState();
@@ -39,7 +41,7 @@ class _AddVehicleFormState extends State<AddVehicleForm>
         borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
         boxShadow: [
           BoxShadow(
-              color: Colors.black26.withOpacity(0.1),
+              color: Colors.black26.withValues(alpha:0.1),
               blurRadius: 20,
               spreadRadius: 3)
         ],
@@ -102,9 +104,9 @@ class _AddVehicleFormState extends State<AddVehicleForm>
           _inputField("Vehicle Number", "e.g., DL 01 AB 1234", numberCtrl),
           Row(
             children: [
-              Expanded(child: _inputField("Rent/Hour (₹)", "100", rentHourCtrl)),
+              Expanded(child: _inputField("Rent/Hour (â‚¹)", "100", rentHourCtrl)),
               const SizedBox(width: 10),
-              Expanded(child: _inputField("Rent/Day (₹)", "1500", rentDayCtrl)),
+              Expanded(child: _inputField("Rent/Day (â‚¹)", "1500", rentDayCtrl)),
             ],
           ),
           _inputField("Description", "Brief vehicle description", descCtrl,
@@ -250,7 +252,7 @@ class _AddVehicleFormState extends State<AddVehicleForm>
 
   Future<void> _pickImages() async {
     final pickedFiles = await picker.pickMultiImage();
-    if (pickedFiles != null) setState(() => vehicleImages = pickedFiles);
+    setState(() => vehicleImages = pickedFiles);
   }
 
   Future<void> _saveVehicleToFirestore() async {
@@ -337,7 +339,7 @@ class _AddVehicleFormState extends State<AddVehicleForm>
                   borderRadius: BorderRadius.circular(32),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black12.withOpacity(0.18),
+                      color: Colors.black12.withValues(alpha:0.18),
                       blurRadius: 40,
                       spreadRadius: 6,
                       offset: const Offset(0, 12),
@@ -362,7 +364,7 @@ class _AddVehicleFormState extends State<AddVehicleForm>
                         ),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.green.withOpacity(0.18),
+                            color: Colors.green.withValues(alpha:0.18),
                             blurRadius: 20,
                             spreadRadius: 2,
                           ),
@@ -403,7 +405,7 @@ class _AddVehicleFormState extends State<AddVehicleForm>
                       padding: const EdgeInsets.symmetric(
                           horizontal: 16, vertical: 10),
                       decoration: BoxDecoration(
-                        color: Colors.green.withOpacity(0.09),
+                        color: Colors.green.withValues(alpha:0.09),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Row(
@@ -489,7 +491,7 @@ class DottedBorderContainer extends StatelessWidget {
         color: Colors.blue.shade50,
         borderRadius: BorderRadius.circular(12),
         border:
-            Border.all(color: Colors.blueAccent.withOpacity(0.4), width: 1.5),
+            Border.all(color: Colors.blueAccent.withValues(alpha:0.4), width: 1.5),
       ),
       child: Center(
         child: Column(

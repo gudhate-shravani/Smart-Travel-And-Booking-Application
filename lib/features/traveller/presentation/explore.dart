@@ -1,3 +1,5 @@
+﻿// ignore_for_file: deprecated_member_use, use_build_context_synchronously
+
 
 
 import 'dart:convert';
@@ -307,8 +309,8 @@ class _ExploreScreenState extends State<ExploreScreen> {
                 top: 12,
                 left: 12,
                 child: _buildInfoChip(
-                  '★ ${dest.rating.toStringAsFixed(1)}',
-                  Colors.green.withOpacity(0.8),
+                  'â˜… ${dest.rating.toStringAsFixed(1)}',
+                  Colors.green.withValues(alpha: 0.8),
                 ),
               ),
               Positioned(
@@ -316,7 +318,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                 left: 12,
                 child: _buildInfoChip(
                   '${dest.distance.toStringAsFixed(1)} km',
-                  Colors.blue.withOpacity(0.8),
+                  Colors.blue.withValues(alpha: 0.8),
                   icon: Icons.send,
                 ),
               ),

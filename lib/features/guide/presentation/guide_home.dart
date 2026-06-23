@@ -1,3 +1,5 @@
+﻿
+// ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -11,7 +13,7 @@ import 'guide_card.dart';
 import 'package_card.dart';
 
 class HomeScreen extends StatefulWidget {
-   HomeScreen({super.key});
+   const HomeScreen({super.key});
   // String guideEmail = '';
   
   @override
@@ -39,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
       await _fetchGuides();
       await _fetchPackages();
     } catch (e) {
-      print("Error fetching data: $e");
+      debugPrint("Error fetching data: $e");
     } finally {
       setState(() => isLoading = false);
     }
@@ -48,10 +50,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> _fetchGuides() async {
     final user = _auth.currentUser;
     if (user == null) return;
-
-    final travelerDoc =
-        await _firestore.collection('Traveler').doc(user.email).get();
-    final userFullName = travelerDoc.data()?['fullName'] ?? 'Traveler User';
 
     final guidesSnap = await _firestore.collection('Guide').get();
 
@@ -148,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
   groupSize: data['groupSize'] ?? '5-10',
   highlights: List<String>.from(
       data['highlights'] ?? ['Sightseeing', 'Local Cuisine', 'Nature']),
-  guideEmail: guideDoc.id, // ✅ store the guide’s email
+  guideEmail: guideDoc.id, // âœ… store the guideâ€™s email
 );
 
 
@@ -173,7 +171,7 @@ class _HomeScreenState extends State<HomeScreen> {
         }
       }
     } catch (e) {
-      print("Unsplash error: $e");
+      debugPrint("Error fetching Unsplash image: $e");
     }
     return 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500&q=80';
   }
@@ -206,10 +204,10 @@ class _HomeScreenState extends State<HomeScreen> {
   return ListView.builder(
     itemCount: packages.length,
     itemBuilder: (context, index) {
-      final TourPackage package = packages[index]; // ✅ Define it here
+      final TourPackage package = packages[index]; // âœ… Define it here
       return PackageCard(
-        guideEmail: package.guideEmail, // ✅ Use the stored guide email
-        tourPackage: package,           // ✅ Pass the package object
+        guideEmail: package.guideEmail, // âœ… Use the stored guide email
+        tourPackage: package,           // âœ… Pass the package object
       );
     },
   );
@@ -271,7 +269,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: _showGuides ? Colors.white : Colors.transparent,
                   borderRadius: BorderRadius.circular(30),
                   boxShadow: _showGuides
-                      ? [BoxShadow(color: Colors.grey.withOpacity(0.3), spreadRadius: 1, blurRadius: 5)]
+                      ? [BoxShadow(color: Colors.grey.withValues(alpha:0.3), spreadRadius: 1, blurRadius: 5)]
                       : [],
                 ),
                 child: const Center(child: Text('Guides', style: TextStyle(fontWeight: FontWeight.bold))),
@@ -287,7 +285,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: !_showGuides ? Colors.white : Colors.transparent,
                   borderRadius: BorderRadius.circular(30),
                    boxShadow: !_showGuides
-                      ? [BoxShadow(color: Colors.grey.withOpacity(0.3), spreadRadius: 1, blurRadius: 5)]
+                      ? [BoxShadow(color: Colors.grey.withValues(alpha:0.3), spreadRadius: 1, blurRadius: 5)]
                       : [],
                 ),
                 child: const Center(child: Text('Packages', style: TextStyle(fontWeight: FontWeight.bold))),

@@ -1,4 +1,4 @@
-
+﻿
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -151,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen> {
         return tb.compareTo(ta);
       });
     } catch (e) {
-      print('Error loading requests: $e');
+      debugPrint('Error loading requests: $e');
     }
 
     if (!mounted) return;
@@ -201,7 +201,7 @@ class _HomeScreenState extends State<HomeScreen> {
           : 'No date',
       time: 'Flexible',
       location: item.guideLocation ?? 'Unknown',
-      price: item.packageData?['price']?.toString() ?? '—',
+      price: item.packageData?['price']?.toString() ?? 'â€”',
       status: item.status,
       onAccept: () => _updateRequestStatus(item, 'accepted'),
       onReject: () => _updateRequestStatus(item, 'rejected'),
@@ -326,7 +326,7 @@ class _HomeScreenState extends State<HomeScreen> {
               borderRadius: BorderRadius.circular(16),
               boxShadow: [
                 BoxShadow(
-                    color: Colors.black.withOpacity(0.05),
+                    color: Colors.black.withValues(alpha: 0.05),
                     blurRadius: 10,
                     offset: const Offset(0, 4))
               ],
@@ -357,7 +357,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: _buildOverviewCard(
             icon: Icons.currency_rupee,
             label: 'This Month',
-            value: '₹45,680',
+            value: 'â‚¹45,680',
             subValue: '+12%',
             gradient: const LinearGradient(
                 colors: [Color(0xFF8A2BE2), Color(0xFF5F2EEA)],
@@ -412,7 +412,7 @@ class _HomeScreenState extends State<HomeScreen> {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-              color: Colors.black.withOpacity(0.15),
+              color: Colors.black.withValues(alpha: 0.15),
               blurRadius: 8,
               offset: const Offset(0, 4))
         ],
@@ -421,7 +421,7 @@ class _HomeScreenState extends State<HomeScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Icon(icon, color: Colors.white.withOpacity(0.9), size: 22),
+          Icon(icon, color: Colors.white.withValues(alpha: 0.9), size: 22),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

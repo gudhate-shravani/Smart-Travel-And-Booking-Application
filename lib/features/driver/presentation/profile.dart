@@ -1,9 +1,8 @@
-
+﻿
 
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:travelapplication/features/driver/presentation/add_vehicle_form.dart';
 
 
@@ -34,13 +33,13 @@ class _DriverProfileScreenState extends State<DriverProfileScreen> {
     try {
       final user = _auth.currentUser;
       if (user == null) {
-        print("⚠️ No logged in user!");
+        debugPrint("Ã¢Å¡Â Ã¯Â¸Â No logged in user!");
         setState(() => _isLoading = false);
         return;
       }
 
       final userEmail = user.email!;
-      print("🔍 Fetching data for $userEmail");
+      debugPrint("Ã°Å¸â€Â Fetching data for $userEmail");
 
       // Fetch driver info
       final docRef = _firestore.collection('Rental Driver').doc(userEmail);
@@ -50,9 +49,9 @@ class _DriverProfileScreenState extends State<DriverProfileScreen> {
         final data = docSnap.data()!;
         fullName = data['fullName'] ?? 'Unknown';
         email = data['email'] ?? userEmail;
-        print("✅ Driver info: $data");
+        debugPrint("Ã¢Å“â€¦ Driver info: $data");
       } else {
-        print("❌ No document found for user: $userEmail");
+        debugPrint("Ã¢ÂÅ’ No document found for user: $userEmail");
       }
 
       // Fetch vehicles under this user
@@ -63,10 +62,10 @@ class _DriverProfileScreenState extends State<DriverProfileScreen> {
         return vehicleData;
       }).toList();
 
-      print("🚗 Found ${vehicles.length} vehicles");
+      debugPrint("Ã°Å¸Å¡â€” Found ${vehicles.length} vehicles");
 
     } catch (e) {
-      print("❌ Error fetching data: $e");
+      debugPrint("Ã¢ÂÅ’ Error fetching data: $e");
     }
 
     setState(() => _isLoading = false);
@@ -251,7 +250,7 @@ class _DriverProfileScreenState extends State<DriverProfileScreen> {
             mainAxisSpacing: 10,
             children: const [
               _InfoTile(icon: Icons.directions_car, title: "Total Rides", value: "1,247"),
-              _InfoTile(icon: Icons.currency_rupee, title: "Total Earnings", value: "₹3,45,600"),
+              _InfoTile(icon: Icons.currency_rupee, title: "Total Earnings", value: "Ã¢â€šÂ¹3,45,600"),
               _InfoTile(icon: Icons.star, title: "Average Rating", value: "4.8/5"),
               _InfoTile(icon: Icons.verified, title: "Completion Rate", value: "98%"),
             ],
@@ -332,7 +331,7 @@ class _DriverProfileScreenState extends State<DriverProfileScreen> {
                   children: [
                     _chip(type, Colors.grey.shade200, Colors.black),
                     const SizedBox(width: 6),
-                    _chip(status, color.withOpacity(0.15), color),
+                    _chip(status, color.withValues(alpha: 0.15), color),
                   ],
                 ),
               ],
@@ -373,7 +372,7 @@ class _DriverProfileScreenState extends State<DriverProfileScreen> {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            _chip(status, color.withOpacity(0.15), color),
+            _chip(status, color.withValues(alpha: 0.15), color),
             const SizedBox(width: 4),
             const Icon(Icons.upload_file, color: Colors.grey, size: 18),
             const SizedBox(width: 2),
@@ -416,7 +415,7 @@ class _DriverProfileScreenState extends State<DriverProfileScreen> {
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: Row(
         children: [
-          Text("$stars ★"),
+          Text("$stars Ã¢Ëœâ€¦"),
           const SizedBox(width: 8),
           Expanded(
             child: LinearProgressIndicator(
@@ -439,7 +438,7 @@ class _DriverProfileScreenState extends State<DriverProfileScreen> {
       color: Colors.white,
       borderRadius: BorderRadius.circular(12),
       boxShadow: [
-        BoxShadow(color: Colors.grey.withOpacity(0.15), blurRadius: 8, offset: const Offset(0, 3)),
+        BoxShadow(color: Colors.grey.withValues(alpha: 0.15), blurRadius: 8, offset: const Offset(0, 3)),
       ],
     );
   }

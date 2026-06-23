@@ -1,3 +1,5 @@
+﻿// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:travelapplication/main.dart';
@@ -98,7 +100,7 @@ class _AppDrawerState extends State<AppDrawer> {
                   onChanged: (value) {
                     setState(() => isDarkMode = value);
                   },
-                  activeColor: const Color(0xFF3D5CFF),
+                  activeThumbColor: const Color(0xFF3D5CFF),
                 ),
                 const Divider(height: 20),
                 _drawerItem(Iconsax.logout, "Sign Out", () async {
@@ -142,7 +144,7 @@ class _AppDrawerState extends State<AppDrawer> {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.2),
+            color: Colors.white.withValues(alpha: 0.2),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Text(

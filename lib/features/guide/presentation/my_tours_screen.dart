@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'my_tours_screen.dart';
 import 'tour_task_screen.dart' show TourTaskScreen;
 
 class MyToursScreen extends StatelessWidget {

@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 //import 'package.flutter/cupertino.dart';
-import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 
@@ -53,7 +52,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       children: [
         CircleAvatar(
           radius: 30,
-          backgroundColor: Colors.blue.withOpacity(0.1),
+          backgroundColor: Colors.blue.withValues(alpha:0.1),
           child: const Icon(Icons.calendar_today_outlined, color: Colors.blue, size: 28),
         ),
         const SizedBox(height: 12),
@@ -133,7 +132,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   calendarFormat: CalendarFormat.month,
                   headerStyle: const HeaderStyle(formatButtonVisible: false, titleCentered: true),
                   calendarStyle: CalendarStyle(
-                    todayDecoration: BoxDecoration(color: Colors.blue.withOpacity(0.5), shape: BoxShape.circle),
+                    todayDecoration: BoxDecoration(color: Colors.blue.withValues(alpha:0.5), shape: BoxShape.circle),
                     selectedDecoration: const BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
                   ),
                 ),
@@ -170,7 +169,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       child: Container(
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: color.withOpacity(0.1),
+          color: color.withValues(alpha:0.1),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(
@@ -179,7 +178,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             Text(value, style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: color)),
             Text(label, style: const TextStyle(fontSize: 14, color: Colors.black87)),
             const SizedBox(height: 8),
-            LinearProgressIndicator(value: progress, backgroundColor: color.withOpacity(0.2), color: color),
+            LinearProgressIndicator(value: progress, backgroundColor: color.withValues(alpha:0.2), color: color),
             const SizedBox(height: 4),
             Text(goal, style: TextStyle(fontSize: 12, color: Colors.grey.shade600)),
           ],
@@ -228,7 +227,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           const SizedBox(width: 4),
           CircleAvatar(
             radius: 9,
-            backgroundColor: isSelected ? Colors.white.withOpacity(0.3) : Colors.white,
+            backgroundColor: isSelected ? Colors.white.withValues(alpha:0.3) : Colors.white,
             child: Text(count.toString(), style: TextStyle(fontSize: 11, color: isSelected ? Colors.white : Colors.black87, fontWeight: FontWeight.bold)),
           )
         ],
@@ -267,7 +266,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 const Spacer(),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                  decoration: BoxDecoration(color: statusColor.withOpacity(0.1), borderRadius: BorderRadius.circular(8)),
+                  decoration: BoxDecoration(color: statusColor.withValues(alpha:0.1), borderRadius: BorderRadius.circular(8)),
                   child: Text(status, style: TextStyle(color: statusColor, fontWeight: FontWeight.bold, fontSize: 12)),
                 )
               ],
@@ -346,7 +345,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget _perfStat(String value, String label, String subtext, Color color) {
     return Container(
       padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(color: color.withOpacity(0.1), borderRadius: BorderRadius.circular(12)),
+      decoration: BoxDecoration(color: color.withValues(alpha:0.1), borderRadius: BorderRadius.circular(12)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,

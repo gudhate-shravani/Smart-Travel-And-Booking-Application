@@ -1,4 +1,4 @@
-
+﻿
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 
@@ -38,7 +38,7 @@ class PaymentBody extends StatelessWidget {
                 const Text("Current Balance",
                     style: TextStyle(color: Colors.white70, fontSize: 14)),
                 const SizedBox(height: 8),
-                const Text("₹24,580",
+                const Text("â‚¹24,580",
                     style: TextStyle(color: Colors.white, fontSize: 28, fontWeight: FontWeight.bold)),
                 const SizedBox(height: 8),
                 const Text("Available for withdrawal",
@@ -129,7 +129,7 @@ class PaymentBody extends StatelessWidget {
                 const SizedBox(height: 10),
                 const Align(
                     alignment: Alignment.bottomRight,
-                    child: Text("Total this week ₹13,700",
+                    child: Text("Total this week â‚¹13,700",
                         style: TextStyle(fontWeight: FontWeight.bold)))
               ],
             ),
@@ -137,11 +137,11 @@ class PaymentBody extends StatelessWidget {
 
           const SizedBox(height: 20),
 
-          // Today’s Earnings + Total Trips
+          // Todayâ€™s Earnings + Total Trips
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _smallCard("Today's Earnings", "₹1,650", Icons.attach_money, Colors.green),
+              _smallCard("Today's Earnings", "â‚¹1,650", Icons.attach_money, Colors.green),
               _smallCard("Total Trips", "142", Icons.calendar_month, Colors.blue),
             ],
           ),
@@ -159,11 +159,11 @@ class PaymentBody extends StatelessWidget {
           const SizedBox(height: 10),
 
           // History Items
-          _historyItem("Trip to IGI Airport", "Priya Sharma", "Today, 2:30 PM", "₹450", "Paid", Colors.green),
-          _historyItem("8-hour car rental", "Amit Patel", "Today, 9:00 AM", "₹1,200", "Paid", Colors.green),
-          _historyItem("Trip to Cyber City", "Rahul Kumar", "Yesterday, 6:15 PM", "₹320", "Pending", Colors.orange),
-          _historyItem("Trip to Red Fort", "Sneha Gupta", "Yesterday, 12:30 PM", "₹150", "Paid", Colors.green),
-         // _historyItem("Bank transfer", "", "2 days ago", "-₹5,000", "Completed", Colors.blue),
+          _historyItem("Trip to IGI Airport", "Priya Sharma", "Today, 2:30 PM", "â‚¹450", "Paid", Colors.green),
+          _historyItem("8-hour car rental", "Amit Patel", "Today, 9:00 AM", "â‚¹1,200", "Paid", Colors.green),
+          _historyItem("Trip to Cyber City", "Rahul Kumar", "Yesterday, 6:15 PM", "â‚¹320", "Pending", Colors.orange),
+          _historyItem("Trip to Red Fort", "Sneha Gupta", "Yesterday, 12:30 PM", "â‚¹150", "Paid", Colors.green),
+         // _historyItem("Bank transfer", "", "2 days ago", "-â‚¹5,000", "Completed", Colors.blue),
         ],
       ),
     );
@@ -257,7 +257,7 @@ class PaymentBody extends StatelessWidget {
       icon: Icon(icon, size: 18),
       label: Text(label),
       style: ElevatedButton.styleFrom(
-       // backgroundColor: color.withOpacity(0.1),
+       // backgroundColor: color.withValues(alpha: 0.1),
        // foregroundColor: color,
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),

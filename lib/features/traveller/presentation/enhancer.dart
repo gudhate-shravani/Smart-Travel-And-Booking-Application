@@ -229,7 +229,7 @@ class _PhotoEnhancerScreenState extends State<PhotoEnhancerScreen> {
       label: Text(text),
       style: ElevatedButton.styleFrom(
         foregroundColor: Colors.deepPurple,
-        backgroundColor: Colors.white.withOpacity(0.9),
+        backgroundColor: Colors.white.withValues(alpha: 0.9),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
       ),
@@ -341,7 +341,7 @@ class _PhotoEnhancerScreenState extends State<PhotoEnhancerScreen> {
             boxShadow: isSelected
                 ? [
                     BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
+                        color: Colors.black.withValues(alpha: 0.1),
                         blurRadius: 5,
                         spreadRadius: 1)
                   ]
@@ -398,7 +398,7 @@ class _PhotoEnhancerScreenState extends State<PhotoEnhancerScreen> {
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
-                color: Colors.grey.withOpacity(0.1),
+                color: Colors.grey.withValues(alpha: 0.1),
                 spreadRadius: 1,
                 blurRadius: 10,
               ),
@@ -411,7 +411,7 @@ class _PhotoEnhancerScreenState extends State<PhotoEnhancerScreen> {
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: color.withOpacity(0.15),
+                  color: color.withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Icon(icon, color: color, size: 28),
@@ -523,7 +523,7 @@ class _PhotoEnhancerScreenState extends State<PhotoEnhancerScreen> {
                 value: value,
                 onChanged: onChanged,
                 activeColor: Colors.deepPurple,
-                inactiveColor: Colors.deepPurple.withOpacity(0.2),
+                inactiveColor: Colors.deepPurple.withValues(alpha: 0.2),
               ),
             ),
             Text('${(value * 100).toInt()}%', style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
@@ -578,7 +578,7 @@ class _PhotoEnhancerScreenState extends State<PhotoEnhancerScreen> {
               padding: const EdgeInsets.symmetric(vertical: 14),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
               elevation: 4,
-              shadowColor: Colors.deepPurple.withOpacity(0.4),
+              shadowColor: Colors.deepPurple.withValues(alpha: 0.4),
             ),
           ),
         ),
@@ -663,7 +663,7 @@ class _PhotoEnhancerScreenState extends State<PhotoEnhancerScreen> {
         child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-                const Text('• ', style: TextStyle(color: Color(0xFF004D40))),
+                const Text('â€¢ ', style: TextStyle(color: Color(0xFF004D40))),
                 Expanded(child: Text(text, style: const TextStyle(color: Color(0xFF004D40)))),
             ],
         ),
@@ -681,7 +681,7 @@ class _PhotoEnhancerScreenState extends State<PhotoEnhancerScreen> {
   // Builds the loading overlay with a message.
   Widget _buildLoadingOverlay() {
     return Container(
-      color: Colors.black.withOpacity(0.5),
+      color: Colors.black.withValues(alpha: 0.5),
       child: Center(
         child: Container(
             padding: const EdgeInsets.all(24),
@@ -725,7 +725,6 @@ class _PhotoEnhancerScreenState extends State<PhotoEnhancerScreen> {
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'dart:async';
 import 'dart:io';
 
@@ -960,7 +959,6 @@ class _PhotoEnhancerScreenState extends State<PhotoEnhancerScreen> {
         0,      0,      0,      1, 0,
       ]);
     }
-    // TODO: Add matrices for Vintage, Dramatic, etc. here.
     return null;
   }
 
@@ -1056,7 +1054,7 @@ class _PhotoEnhancerScreenState extends State<PhotoEnhancerScreen> {
                 min: 0.0,
                 max: 1.0,
                 activeColor: Theme.of(context).primaryColor,
-                inactiveColor: Theme.of(context).primaryColor.withOpacity(0.2),
+                inactiveColor: Theme.of(context).primaryColor.withValues(alpha: 0.2),
               ),
             ),
             Text('${(value * 100).toInt()}%', style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
@@ -1283,7 +1281,7 @@ class _PhotoEnhancerScreenState extends State<PhotoEnhancerScreen> {
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
-                color: Colors.grey.withOpacity(0.1),
+                color: Colors.grey.withValues(alpha: 0.1),
                 spreadRadius: 1,
                 blurRadius: 10,
               ),
@@ -1296,7 +1294,7 @@ class _PhotoEnhancerScreenState extends State<PhotoEnhancerScreen> {
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: color.withOpacity(0.15),
+                  color: color.withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Icon(icon, color: color, size: 28),
@@ -1356,7 +1354,7 @@ class _PhotoEnhancerScreenState extends State<PhotoEnhancerScreen> {
       label: Text(text),
       style: ElevatedButton.styleFrom(
         foregroundColor: Colors.deepPurple,
-        backgroundColor: Colors.white.withOpacity(0.9),
+        backgroundColor: Colors.white.withValues(alpha: 0.9),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
       ),
@@ -1443,7 +1441,7 @@ class _PhotoEnhancerScreenState extends State<PhotoEnhancerScreen> {
         child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-                const Text('• ', style: TextStyle(color: Color(0xFF004D40))),
+                const Text('â€¢ ', style: TextStyle(color: Color(0xFF004D40))),
                 Expanded(child: Text(text, style: const TextStyle(color: Color(0xFF004D40)))),
             ],
         ),
@@ -1484,7 +1482,7 @@ class _PhotoEnhancerScreenState extends State<PhotoEnhancerScreen> {
             boxShadow: isSelected
                 ? [
                     BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
+                        color: Colors.black.withValues(alpha: 0.1),
                         blurRadius: 5,
                         spreadRadius: 1)
                   ]
@@ -1531,7 +1529,7 @@ class _PhotoEnhancerScreenState extends State<PhotoEnhancerScreen> {
               padding: const EdgeInsets.symmetric(vertical: 14),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
               elevation: 4,
-              shadowColor: Colors.deepPurple.withOpacity(0.4),
+              shadowColor: Colors.deepPurple.withValues(alpha: 0.4),
             ),
           ),
         ),
@@ -1542,7 +1540,7 @@ class _PhotoEnhancerScreenState extends State<PhotoEnhancerScreen> {
   // Builds the loading overlay with a message.
   Widget _buildLoadingOverlay() {
     return Container(
-      color: Colors.black.withOpacity(0.5),
+      color: Colors.black.withValues(alpha: 0.5),
       child: Center(
         child: Container(
             padding: const EdgeInsets.all(24),

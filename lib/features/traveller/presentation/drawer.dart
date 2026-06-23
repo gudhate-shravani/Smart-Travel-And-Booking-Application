@@ -1,3 +1,5 @@
+﻿// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:travelapplication/main.dart';
 import 'about_us.dart';
@@ -74,7 +76,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       const SizedBox(height: 16),
                       _buildThemeToggle(),
                       const SizedBox(height: 8),
-                      ..._drawerItems.map((item) => _buildMenuItem(item)).toList(),
+                      ..._drawerItems.map((item) => _buildMenuItem(item)),
                     ],
                   ),
                 ),
@@ -115,7 +117,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(30), bottomRight: Radius.circular(30)),
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                child: Container(color: Colors.black.withOpacity(0.1)),
+                child: Container(color: Colors.black.withValues(alpha: 0.1)),
               ),
             ),
             Positioned(
@@ -154,7 +156,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                         const SizedBox(height: 4),
                         Row(
                           children: [
-                            Text('Premium Explorer', style: TextStyle(color: Colors.white.withOpacity(0.8))),
+                            Text('Premium Explorer', style: TextStyle(color: Colors.white.withValues(alpha: 0.8))),
                             const Icon(Icons.star, color: Colors.amber, size: 16),
                           ],
                         ),
@@ -177,7 +179,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               top: 40,
               right: 10,
               child: IconButton(
-                icon: Icon(Icons.close, color: Colors.white.withOpacity(0.8)),
+                icon: Icon(Icons.close, color: Colors.white.withValues(alpha: 0.8)),
                 onPressed: () => Navigator.of(context).pop(),
               ),
             ),
@@ -191,7 +193,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.2),
+        color: color.withValues(alpha: 0.2),
         borderRadius: BorderRadius.circular(8),
         border: Border.all(color: color, width: 0.5)
       ),
@@ -228,7 +230,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
           Switch(
             value: _isLightTheme,
             onChanged: (value) => setState(() => _isLightTheme = value),
-            activeColor: Colors.purple,
+            activeThumbColor: Colors.purple,
           )
         ],
       ),

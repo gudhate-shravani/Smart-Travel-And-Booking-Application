@@ -1,3 +1,5 @@
+﻿// ignore_for_file: use_build_context_synchronously
+
 
 import 'package:travelapplication/features/driver/presentation/nearby_essential.dart';
 import 'package:travelapplication/features/driver/presentation/translator.dart';
@@ -31,7 +33,7 @@ void initState() {
   try {
     final user = _auth.currentUser;
     if (user == null) {
-      print("⚠️ No user logged in");
+      debugPrint("Ã¢Å¡Â Ã¯Â¸Â No user logged in");
       setState(() => _isLoading = false);
       return;
     }
@@ -43,13 +45,13 @@ void initState() {
       setState(() {
         driverName = data['fullName'] ?? 'Driver';
       });
-      print("✅ Fetched driver name: ${data['fullName']}");
+      debugPrint("Ã¢Å“â€¦ Fetched driver name: ${data['fullName']}");
     } else {
-      print("❌ No document found for ${user.email}");
+      debugPrint("Ã¢ÂÅ’ No document found for ${user.email}");
       setState(() => driverName = 'Driver');
     }
   } catch (e) {
-    print("❌ Error fetching name: $e");
+    debugPrint("Ã¢ÂÅ’ Error fetching name: $e");
     setState(() => driverName = 'Driver');
   }
 
@@ -64,7 +66,7 @@ void initState() {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Colors.white.withOpacity(0.95),
+      backgroundColor: Colors.white.withValues(alpha: 0.95),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           topRight: Radius.circular(25),
@@ -122,7 +124,7 @@ void initState() {
                         children: [
                           Text( _isLoading
       ? "Driver"
-      : "${driverName ?? 'Driver'}",
+      : driverName ?? 'Driver',
                               style: const TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.w600)),
                           const SizedBox(height: 4),

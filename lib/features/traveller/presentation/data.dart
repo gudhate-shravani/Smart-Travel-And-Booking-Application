@@ -1,4 +1,4 @@
-// data.dart - Add the following parsing function
+﻿// data.dart - Add the following parsing function
 
 import 'dart:convert';
 import 'package:flutter/material.dart'; // Keep the import for IconData
@@ -65,7 +65,7 @@ class PackingCategory {
         );
       }).toList();
     } catch (e) {
-      print('Error parsing Gemini response to PackingCategory: $e');
+      debugPrint('Error parsing Gemini response to PackingCategory: $e');
       // Return an empty list or a default list on failure
       return []; 
     }

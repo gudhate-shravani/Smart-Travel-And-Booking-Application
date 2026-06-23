@@ -1,4 +1,4 @@
-
+﻿
 import 'package:flutter/material.dart';
 import 'dart:convert';
 
@@ -88,7 +88,7 @@ class GeminiService {
       properties: {
         'total': Schema(
           SchemaType.string,
-          description: 'The estimated total budget, including a currency symbol (e.g., "₹1,89,000").'
+          description: 'The estimated total budget, including a currency symbol (e.g., "Ã¢â€šÂ¹1,89,000").'
         ),
         'breakdown': Schema(
           SchemaType.object, 
@@ -112,7 +112,7 @@ class GeminiService {
       Duration: "$durationDays days"
       Travel Style: "$travelStyle"
       
-      The budget must be estimated in Indian Rupees (₹) and should be realistic for the specified style and destination.
+      The budget must be estimated in Indian Rupees (Ã¢â€šÂ¹) and should be realistic for the specified style and destination.
       Provide the result strictly in the requested JSON format.
     ''';
 
@@ -141,11 +141,11 @@ class GeminiService {
       return BudgetEstimate.fromJson(jsonMap); 
     } on GenerativeAIException catch (e) { // GenerativeAIException also without the prefix
         // Log the specific Gemini API error
-        print('Gemini API Error: ${e.message}');
+        debugPrint('Gemini API Error: ${e.message}');
         throw Exception('Gemini API Error: ${e.message}');
     } catch (e) {
       // Catch all other exceptions (like jsonDecode failure)
-      print('An unexpected error occurred: $e');
+      debugPrint('An unexpected error occurred: $e');
       throw Exception('An unexpected error occurred: $e');
     }
   }
@@ -269,8 +269,8 @@ class BudgetStartScreen extends StatelessWidget {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              gradientColors.startColor.withOpacity(0.9),
-              gradientColors.endColor.withOpacity(0.9)
+              gradientColors.startColor.withValues(alpha: 0.9),
+              gradientColors.endColor.withValues(alpha: 0.9)
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -279,8 +279,8 @@ class BudgetStartScreen extends StatelessWidget {
         child: Stack(
           children: [
             // Decorative background icons matching the visual style
-            Positioned(top: 50, right: 30, child: Icon(Icons.wallet_travel, size: 80, color: Colors.white.withOpacity(0.1))),
-            Positioned(bottom: 50, left: 30, child: Icon(Icons.calculate, size: 80, color: Colors.white.withOpacity(0.1))),
+            Positioned(top: 50, right: 30, child: Icon(Icons.wallet_travel, size: 80, color: Colors.white.withValues(alpha: 0.1))),
+            Positioned(bottom: 50, left: 30, child: Icon(Icons.calculate, size: 80, color: Colors.white.withValues(alpha: 0.1))),
 
             Padding(
               padding: const EdgeInsets.all(32.0),
@@ -522,7 +522,7 @@ class _BudgetChatScreenState extends State<BudgetChatScreen> {
                 });
               },
               backgroundColor: const Color(0xFFF3F4F6),
-              selectedColor: Theme.of(context).extension<GradientColors>()!.startColor.withOpacity(0.2),
+              selectedColor: Theme.of(context).extension<GradientColors>()!.startColor.withValues(alpha: 0.2),
               labelStyle: TextStyle(
                 color: isSelected ? Theme.of(context).extension<GradientColors>()!.startColor : Colors.black87,
                 fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
@@ -562,7 +562,7 @@ class _BudgetChatScreenState extends State<BudgetChatScreen> {
               ),
               boxShadow: [
                 BoxShadow(
-                  color: gradientColors.endColor.withOpacity(0.3),
+                  color: gradientColors.endColor.withValues(alpha: 0.3),
                   blurRadius: 10,
                   offset: const Offset(0, 5),
                 ),
@@ -602,7 +602,7 @@ class _BudgetChatScreenState extends State<BudgetChatScreen> {
                     });
                   },
                   style: TextButton.styleFrom(
-                    backgroundColor: Colors.white.withOpacity(0.2),
+                    backgroundColor: Colors.white.withValues(alpha: 0.2),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                       side: const BorderSide(color: Colors.white, width: 1),
@@ -648,7 +648,7 @@ class _BudgetChatScreenState extends State<BudgetChatScreen> {
                 entry.key, 
                 entry.value, 
                 _getIconForCategory(entry.key),
-              )).toList(),
+              )),
         ],
       ),
     );
@@ -661,7 +661,7 @@ class _BudgetChatScreenState extends State<BudgetChatScreen> {
         children: [
           CircleAvatar(
             radius: 18,
-            backgroundColor: Theme.of(context).extension<GradientColors>()!.startColor.withOpacity(0.1),
+            backgroundColor: Theme.of(context).extension<GradientColors>()!.startColor.withValues(alpha: 0.1),
             child: Icon(icon, size: 20, color: Theme.of(context).extension<GradientColors>()!.startColor),
           ),
           const SizedBox(width: 12),

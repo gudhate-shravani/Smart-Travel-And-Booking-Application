@@ -1,12 +1,14 @@
+﻿// ignore_for_file: use_build_context_synchronously
+
 
 
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart'; 
-import 'package:travelapplication/driverdashboard.dart';
-import 'guidedashboard.dart';
-import 'userdashboard.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:travelapplication/features/driver/presentation/driverdashboard.dart';
+import 'package:travelapplication/features/guide/presentation/guidedashboard.dart';
+import 'package:travelapplication/features/traveller/presentation/userdashboard.dart'; 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 class RoleSelectionScreen extends StatelessWidget {
@@ -47,11 +49,11 @@ class RoleSelectionScreen extends StatelessWidget {
                         Container(
                           padding: const EdgeInsets.all(20),
                           decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.9),
+                            color: Colors.white.withValues(alpha: 0.9),
                             shape: BoxShape.circle,
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.black.withOpacity(0.05),
+                                color: Colors.black.withValues(alpha: 0.05),
                                 blurRadius: 10,
                                 offset: const Offset(0, 5),
                               ),
@@ -161,7 +163,7 @@ class _RoleCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.05),
+              color: Colors.black.withValues(alpha: 0.05),
               blurRadius: 10,
               offset: const Offset(0, 5),
             ),
@@ -394,7 +396,7 @@ class _LoginFormState extends State<LoginForm> {
               ? 'Invalid email or password.'
               : e.toString().replaceFirst('Exception: ', ''); // Clean up error message
         });
-        print('Login Error: $e');
+        debugPrint('Login Error: $e');
       } finally {
         setState(() {
           _isLoading = false;
@@ -421,7 +423,7 @@ class _LoginFormState extends State<LoginForm> {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1),
+              color: Colors.black.withValues(alpha: 0.1),
               blurRadius: 20,
               offset: const Offset(0, 10),
             ),
@@ -567,7 +569,7 @@ class _SignUpFormState extends State<SignUpForm> {
         setState(() {
           _errorMessage = e.toString().replaceFirst('Exception: ', ''); // Clean up error message
         });
-        print('Sign Up Error: $e');
+        debugPrint('Sign Up Error: $e');
       } finally {
         setState(() {
           _isLoading = false;
@@ -596,7 +598,7 @@ class _SignUpFormState extends State<SignUpForm> {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1),
+              color: Colors.black.withValues(alpha: 0.1),
               blurRadius: 20,
               offset: const Offset(0, 10),
             ),
@@ -752,7 +754,7 @@ class _GradientButton extends StatelessWidget {
         gradient: _buttonGradient,
         boxShadow: [
           BoxShadow(
-            color: _primaryBlue.withOpacity(0.4),
+            color: _primaryBlue.withValues(alpha: 0.4),
             blurRadius: 10,
             offset: const Offset(0, 5),
           ),
@@ -809,7 +811,7 @@ void main() async {
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance; // ✅ ADDED
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance; // âœ… ADDED
   static const String _isLoggedInKey = 'isLoggedIn';
   static const String _userRoleKey = 'userRole';
 
@@ -824,10 +826,10 @@ class AuthService {
 
       await userCredential.user?.updateDisplayName(fullName);
 
-      // ✅ Store login state + role locally
+      // âœ… Store login state + role locally
       await _setLoginState(true, role);
 
-      // ✅ ADD USER DATA TO FIRESTORE
+      // âœ… ADD USER DATA TO FIRESTORE
       await _saveUserToFirestore(
         fullName: fullName,
         email: email,
@@ -835,7 +837,7 @@ class AuthService {
         role: role,
       );
 
-      print('SUCCESS: ${userCredential.user?.displayName} signed up as $role');
+      debugPrint('SUCCESS: ${userCredential.user?.displayName} signed up as $role');
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         throw Exception('The password provided is too weak.');
@@ -849,12 +851,12 @@ class AuthService {
   // --- LOG IN ---
   Future<void> logIn(String email, String password, String role) async {
     try {
-      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+      await _auth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
       await _setLoginState(true, role);
-      print('SUCCESS: User logged in as $role');
+      debugPrint('SUCCESS: User logged in as $role');
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found' || e.code == 'wrong-password') {
         throw Exception('Invalid email or password.');
@@ -903,7 +905,7 @@ class AuthService {
       final userData = {
         'fullName': fullName,
         'email': email,
-        'password': password, // ⚠️ In real apps, don't store plain text passwords
+        'password': password, // âš ï¸ In real apps, don't store plain text passwords
         'role': role,
         'createdAt': FieldValue.serverTimestamp(),
       };
@@ -911,9 +913,9 @@ class AuthService {
       // Add / update document using email as document ID
       await collectionRef.doc(email).set(userData);
 
-      print('Firestore: Added user $email under $role collection');
+      debugPrint('Firestore: Added user $email under $role collection');
     } catch (e) {
-      print('Firestore Error: Failed to save user $email — $e');
+      debugPrint('Firestore Error: Failed to save user $email â€” $e');
     }
   }
 }

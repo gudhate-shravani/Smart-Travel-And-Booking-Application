@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:audioplayers/audioplayers.dart';
 
@@ -107,7 +107,7 @@ class _StreetViewWithAudioState extends State<StreetViewWithAudio> {
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.25),
+                      color: Colors.black.withValues(alpha: 0.25),
                       blurRadius: 10,
                       offset: const Offset(0, -4),
                     ),
@@ -118,7 +118,7 @@ class _StreetViewWithAudioState extends State<StreetViewWithAudio> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       const Text(
-                        "🎧 Taj Mahal Audio Guide",
+                        "ðŸŽ§ Taj Mahal Audio Guide",
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
