@@ -1,21 +1,10 @@
 import 'package:flutter/material.dart';
-import 'search_people_screen.dart';
-
-import 'enhancer.dart';
-import 'journal.dart';
-import 'hotel_bookin.dart';
-import 'mustdo.dart';
-import 'transport.dart' as transport;
-import 'packages.dart';
-import 'tools.dart';
-import 'drawer.dart';
-import 'documentvalute.dart';
-import 'explore.dart';
-import 'virtual_tour.dart';
-import 'nearby_essential.dart';
-import 'homepae.dart';
-import 'ride.dart';
-import 'guide_home.dart'as guide;
+import 'package:travelapplication/features/guide/presentation/home_screen.dart' as guide;
+import 'package:travelapplication/features/traveller/presentation/drawer.dart';
+import 'package:travelapplication/features/traveller/presentation/homepae.dart';
+import 'package:travelapplication/features/traveller/presentation/nearby_essential.dart';
+import 'package:travelapplication/features/traveller/presentation/ride.dart';
+import 'package:travelapplication/features/traveller/presentation/search_people_screen.dart';
 
 
 class UserDashboard extends StatefulWidget {
@@ -36,7 +25,7 @@ class _DriverDashboardState extends State<UserDashboard> {
   //  const TransportPlannerScreen(),
      guide.HomeScreen(),
     BookRideScreen(),
-     transport.HomeScreen(),
+     guide.HomeScreen(),
   ];
 
  void _onItemTapped(int index) {

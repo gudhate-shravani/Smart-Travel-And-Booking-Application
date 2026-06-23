@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'ai_helper_screen.dart';
-import 'home_screen.dart';
-import 'create_package_screen.dart';
-import 'ai_helper_screen.dart';
-import 'messages_screen.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:travelapplication/features/guide/presentation/home_screen.dart';
+import 'package:travelapplication/features/traveller/presentation/ai_helper_screen.dart';
 
 
 
